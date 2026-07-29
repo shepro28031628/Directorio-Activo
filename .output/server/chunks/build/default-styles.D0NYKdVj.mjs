@@ -1,0 +1,8 @@
+const default_vue_vue_type_style_index_0_lang = ".icon-swap-enter-active,.icon-swap-leave-active{position:absolute;transition:opacity .2s ease,transform .2s ease}.icon-swap-enter-from{opacity:0;transform:rotate(-30deg) scale(.7)}.icon-swap-leave-to{opacity:0;transform:rotate(30deg) scale(.7)}.dark .glass-card{background:#0f172a99;border-color:#33415580;box-shadow:0 8px 32px #0000004d}.dark ::-webkit-scrollbar-thumb{background:#475569}.dark ::-webkit-scrollbar-thumb:hover{background:#64748b}";
+
+const defaultStyles_D0NYKdVj = [
+  default_vue_vue_type_style_index_0_lang
+];
+
+export { defaultStyles_D0NYKdVj as default };
+//# sourceMappingURL=default-styles.D0NYKdVj.mjs.map

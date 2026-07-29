@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-family: 'Outfit', 'Inter', sans-serif;
+  --bg-main: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --border-glass: rgba(255, 255, 255, 0.4);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+  
+  --accent-primary: #7C3AED;   /* Morado RENOVA */
+  --accent-secondary: #2563EB; /* Azul corporativo */
+  
+  --color-success: #22c55e;
+  --color-warning: #F59E0B;
+  --color-danger: #ef4444;
+}
+
+/* ===================== DARK MODE VARIABLES ===================== */
+.dark {
+  --bg-main: #0f172a;
+  --bg-glass: rgba(15, 23, 42, 0.65);
+  --border-glass: rgba(51, 65, 85, 0.5);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: var(--font-family);
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+/* ===================== GLASSMORPHISM CARDS ===================== */
+/* Tarjetas con efecto de vidrio — funciona en claro y oscuro */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  box-shadow: var(--shadow-glass);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===================== DARK MODE TYPOGRAPHY ===================== */
+.dark .text-slate-900 { color: #f1f5f9; }
+.dark .text-slate-800 { color: #e2e8f0; }
+.dark .text-slate-700 { color: #cbd5e1; }
+.dark .text-slate-600 { color: #94a3b8; }
+.dark .text-slate-500 { color: #64748b; }
+.dark .text-slate-400 { color: #475569; }
+
+/* Fondos en modo oscuro */
+.dark .bg-slate-50   { background-color: rgba(30, 41, 59, 0.6); }
+.dark .bg-slate-100  { background-color: rgba(30, 41, 59, 0.8); }
+.dark .bg-white      { background-color: rgba(15, 23, 42, 0.8); }
+
+/* Bordes en modo oscuro */
+.dark .border-slate-100 { border-color: rgba(51, 65, 85, 0.5); }
+.dark .border-slate-200 { border-color: rgba(51, 65, 85, 0.7); }
+
+/* Hover en modo oscuro */
+.dark .hover\:bg-slate-50:hover  { background-color: rgba(30, 41, 59, 0.7) !important; }
+.dark .hover\:bg-slate-100\/50:hover { background-color: rgba(30, 41, 59, 0.5) !important; }
+
+/* ===================== SCROLLBARS ===================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
