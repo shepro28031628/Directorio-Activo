@@ -114,22 +114,23 @@ const syncJira = async () => {
 
 <template>
   <div class="space-y-6">
+    <!-- Encabezado -->
     <div class="flex justify-between items-center flex-wrap gap-3">
       <div>
-        <h1 class="text-3xl font-bold tracking-tight text-slate-900 font-sans">Directorio de Colaboradores</h1>
-        <p class="text-slate-500">Gestión de usuarios internos, proyectos y desvinculaciones centralizadas.</p>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white font-sans">Directorio de Colaboradores</h1>
+        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">Gestión de usuarios internos, proyectos y desvinculaciones centralizadas.</p>
       </div>
       <div class="flex gap-3 flex-wrap">
         <!-- Botón Sincronizar con Jira -->
         <button
           @click="syncJira"
           :disabled="isSyncing"
-          class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-wait text-white font-semibold py-2 px-4 rounded-xl transition-all shadow-md shadow-blue-600/20 text-sm"
+          class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-wait text-white font-semibold py-2 px-4 rounded-xl transition-all shadow-md text-xs sm:text-sm"
         >
-          <svg v-if="!isSyncing" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg v-if="!isSyncing" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
           </svg>
-          <svg v-else class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+          <svg v-else class="w-4 h-4 animate-spin shrink-0" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
           </svg>
@@ -139,9 +140,9 @@ const syncJira = async () => {
         <!-- Botón Registrar Colaborador -->
         <button 
           @click="isModalOpen = true"
-          class="bg-brand-purple hover:bg-brand-purpleHover text-white font-semibold py-2 px-4 rounded-xl transition-all shadow-md shadow-brand-purple/20 flex items-center gap-2"
+          class="bg-violet-600 hover:bg-violet-500 text-white font-semibold py-2 px-4 rounded-xl transition-all shadow-md flex items-center gap-2 text-xs sm:text-sm"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
           </svg>
           Registrar Colaborador
@@ -150,24 +151,24 @@ const syncJira = async () => {
     </div>
 
     <!-- Mensaje de sincronización -->
-    <div v-if="syncMessage" class="px-4 py-3 rounded-xl text-sm font-medium border" :class="syncMessage.startsWith('Error') ? 'bg-red-50 text-red-700 border-red-200' : 'bg-green-50 text-green-700 border-green-200'">
+    <div v-if="syncMessage" class="px-4 py-3 rounded-xl text-sm font-medium border" :class="syncMessage.startsWith('Error') ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'">
       {{ syncMessage }}
     </div>
 
-    <!-- Filtros de Búsqueda -->
-    <div class="flex flex-col md:flex-row gap-4 bg-white/70 backdrop-blur-md p-4 rounded-2xl border border-brand-border shadow-sm">
+    <!-- Filtros de Búsqueda Dark Mode Sleek -->
+    <div class="flex flex-col md:flex-row gap-4 bg-slate-900/80 backdrop-blur-md p-4 rounded-2xl border border-slate-800 shadow-sm">
       <div class="flex-grow">
         <input 
           v-model="search" 
           type="text" 
           placeholder="Buscar por colaborador, correo o proyecto..." 
-          class="w-full px-4 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple"
+          class="w-full px-4 py-2 bg-slate-800/90 border border-slate-700/80 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
         />
       </div>
       <div class="w-full md:w-48">
         <select 
           v-model="areaFilter" 
-          class="w-full px-4 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple bg-white"
+          class="w-full px-4 py-2 bg-slate-800/90 border border-slate-700/80 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
         >
           <option value="">Todas las Áreas</option>
           <option value="Tecnología">Tecnología</option>
@@ -180,7 +181,7 @@ const syncJira = async () => {
       <div class="w-full md:w-48">
         <select 
           v-model="statusFilter" 
-          class="w-full px-4 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple bg-white"
+          class="w-full px-4 py-2 bg-slate-800/90 border border-slate-700/80 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
         >
           <option value="">Todos los Estados</option>
           <option value="Activo">Activo</option>

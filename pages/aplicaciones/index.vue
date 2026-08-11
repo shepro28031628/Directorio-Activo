@@ -175,17 +175,17 @@ const handleConcederAcceso = async () => {
                 <!-- Estado Permiso -->
                 <td class="px-6 py-4">
                   <span 
-                    class="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase text-center shadow-sm"
+                    class="inline-block px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase text-center border"
                     :class="acceso.estado === 'Activo' 
-                      ? 'bg-emerald-500 text-white shadow-emerald-500/10' 
-                      : 'bg-red-500 text-white shadow-red-500/10'"
+                      ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' 
+                      : 'bg-rose-500/10 text-rose-400 border-rose-500/30'"
                   >
                     {{ acceso.estado === 'Activo' ? 'Habilitado' : 'Revocado' }}
                   </span>
                 </td>
 
                 <!-- Última Actualización -->
-                <td class="px-6 py-4 text-xs font-medium text-slate-600 dark:text-slate-400 font-mono">
+                <td class="px-6 py-4 text-xs font-medium text-slate-400 font-mono">
                   {{ formatDate(acceso.actualizado_en) }}
                 </td>
 
@@ -193,10 +193,10 @@ const handleConcederAcceso = async () => {
                 <td class="px-6 py-4 text-center">
                   <button 
                     @click="handleToggleAcceso(acceso)"
-                    class="px-4 py-1.5 rounded-full text-xs font-bold text-white transition-all shadow-sm"
+                    class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border"
                     :class="acceso.estado === 'Activo' 
-                      ? 'bg-amber-600 hover:bg-amber-700 shadow-amber-600/10' 
-                      : 'bg-blue-600 hover:bg-blue-700 shadow-blue-600/10'"
+                      ? 'bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border-rose-500/30' 
+                      : 'bg-violet-500/10 hover:bg-violet-500/20 text-violet-300 border-violet-500/30'"
                   >
                     {{ acceso.estado === 'Activo' ? 'Revocar Acceso' : 'Otorgar Acceso' }}
                   </button>
@@ -205,17 +205,17 @@ const handleConcederAcceso = async () => {
             </tbody>
           </table>
 
-          <div v-if="accesos?.length === 0" class="text-center py-12 text-slate-400 dark:text-slate-500 text-sm italic">
+          <div v-if="accesos?.length === 0" class="text-center py-12 text-slate-400 text-sm italic">
             Ningún permiso o acceso coincide con el filtro de búsqueda.
           </div>
         </div>
       </div>
 
       <!-- Panel de Conceder Acceso (Formulario) -->
-      <div class="lg:col-span-4 glass-card p-6 bg-indigo-50/20 dark:bg-slate-900/20 border border-slate-200/80 dark:border-slate-800 shadow-sm">
-        <div class="pb-4 mb-5 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2">
+      <div class="lg:col-span-4 glass-card p-6 bg-slate-900/60 border border-slate-800 shadow-sm">
+        <div class="pb-4 mb-5 border-b border-slate-800 flex items-center gap-2">
           <span class="text-lg">➕</span>
-          <h2 class="text-base font-extrabold text-brand-purple dark:text-violet-400 font-sans tracking-wide uppercase">
+          <h2 class="text-base font-extrabold text-violet-400 font-sans tracking-wide uppercase">
             Conceder Acceso
           </h2>
         </div>
@@ -223,12 +223,12 @@ const handleConcederAcceso = async () => {
         <form @submit.prevent="handleConcederAcceso" class="space-y-5">
           <!-- Campo Colaborador -->
           <div>
-            <label class="block text-[10px] font-extrabold text-[#7C3AED] dark:text-violet-400 uppercase tracking-wider mb-2">
+            <label class="block text-[10px] font-extrabold text-violet-400 uppercase tracking-wider mb-2">
               Colaborador
             </label>
             <select 
               v-model="selectedColaborador"
-              class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-250 shadow-sm"
+              class="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
             >
               <option value="">-- Seleccionar Colaborador --</option>
               <option v-for="c in colaboradores" :key="c.id" :value="c.id">
@@ -239,12 +239,12 @@ const handleConcederAcceso = async () => {
 
           <!-- Campo Aplicación Corporativa -->
           <div>
-            <label class="block text-[10px] font-extrabold text-[#7C3AED] dark:text-violet-400 uppercase tracking-wider mb-2">
+            <label class="block text-[10px] font-extrabold text-violet-400 uppercase tracking-wider mb-2">
               Aplicación Corporativa
             </label>
             <select 
               v-model="selectedAplicacion"
-              class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-purple bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-250 shadow-sm"
+              class="w-full px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500"
             >
               <option value="">-- Seleccionar Aplicación --</option>
               <option v-for="app in aplicaciones" :key="app.id" :value="app.id">
@@ -258,7 +258,7 @@ const handleConcederAcceso = async () => {
             <button 
               type="submit"
               :disabled="isSubmitting"
-              class="w-full bg-brand-purple hover:bg-brand-purpleHover disabled:opacity-55 text-white font-extrabold py-3 px-5 rounded-2xl transition-all shadow-md shadow-brand-purple/20 text-sm tracking-wide"
+              class="w-full bg-violet-600 hover:bg-violet-500 disabled:opacity-55 text-white font-extrabold py-3 px-5 rounded-xl transition-all shadow-md text-sm tracking-wide"
             >
               {{ isSubmitting ? 'Otorgando...' : 'Otorgar Acceso de Seguridad' }}
             </button>
