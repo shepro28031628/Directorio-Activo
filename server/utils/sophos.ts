@@ -122,8 +122,8 @@ export async function setSophosEndpointIsolation(hostname: string, isolate: bool
       body: JSON.stringify({
         enabled: isolate,
         comment: isolate 
-          ? 'Aislamiento preventivo: Acceso revocado en RENOVA MDM' 
-          : 'Aislamiento removido: Acceso concedido en RENOVA MDM',
+          ? 'Aislamiento preventivo: Acceso revocado en Directorio Activo Ren' 
+          : 'Aislamiento removido: Acceso concedido en Directorio Activo Ren',
         ids: [endpointId]
       })
     })

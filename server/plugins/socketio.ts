@@ -27,7 +27,7 @@ export default defineNitroPlugin((nitroApp) => {
             socket.join(token)
             console.log(`[SOCKET] Agente registrado en sala: ${token}`)
             socket.emit('confirmacion', {
-              mensaje: 'Agente registrado correctamente en el canal seguro RENOVA.',
+              mensaje: 'Agente registrado correctamente en el canal seguro Directorio Activo Ren.',
               sala: token
             })
           }

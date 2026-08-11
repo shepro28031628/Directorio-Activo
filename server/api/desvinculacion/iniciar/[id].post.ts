@@ -100,7 +100,7 @@ export default defineEventHandler(async (event) => {
           io.to(eq.token_seguridad).emit('comando_bloqueo', {
             evento: 'comando_bloqueo',
             hostname: eq.hostname,
-            mensaje: 'Su pantalla ha sido bloqueada remotamente por el Asistente de Desvinculación de RENOVA.',
+            mensaje: 'Su pantalla ha sido bloqueada remotamente por el Asistente de Desvinculación de Directorio Activo Ren.',
             timestamp: new Date().toISOString()
           })
           console.log(`[SOCKET] Comando de bloqueo enviado para: ${eq.hostname}`)

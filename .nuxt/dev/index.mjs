@@ -3,47 +3,47 @@ import { Server as Server$1 } from 'node:http';
 import path, { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, createError, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, getQuery as getQuery$1, getRequestWebStream, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, readBody, getResponseStatusText } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/h3/dist/index.mjs';
-import { escapeHtml } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/@vue/shared/dist/shared.cjs.js';
-import viteNodeEntry_mjs from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
-import { viteNodeFetch } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, createError, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, getQuery as getQuery$1, getRequestWebStream, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, readBody, getResponseStatusText } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/h3/dist/index.mjs';
+import { escapeHtml } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/@vue/shared/dist/shared.cjs.js';
+import viteNodeEntry_mjs from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
+import { viteNodeFetch } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
 import fs, { promises, readFileSync } from 'node:fs';
-import PrismaClientPkg from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/@prisma/client/default.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, encodePath, joinRelativeURL } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/vue/server-renderer/index.mjs';
-import { klona } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/defu/dist/defu.mjs';
-import destr, { destr as destr$1 } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/destr/dist/index.mjs';
-import { snakeCase } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/scule/dist/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/unhead/dist/server.mjs';
-import { stringify, uneval } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/devalue/index.js';
-import { isVNode, isRef, toValue } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/vue/index.mjs';
-import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/unhead/dist/plugins.mjs';
-import { createHooks } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/unstorage/drivers/fs.mjs';
-import file_58_47_47_47D_58_47Desktop_47proyectos_3720a_3720estregar_47Directorio_37202_460_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js';
-import { digest, hash as hash$1 } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/ohash/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/radix3/dist/index.mjs';
+import PrismaClientPkg from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/@prisma/client/default.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, encodePath, joinRelativeURL } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/vue/server-renderer/index.mjs';
+import { klona } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/defu/dist/defu.mjs';
+import destr, { destr as destr$1 } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/destr/dist/index.mjs';
+import { snakeCase } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/scule/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/unhead/dist/server.mjs';
+import { stringify, uneval } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/devalue/index.js';
+import { isVNode, isRef, toValue } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/vue/index.mjs';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/unhead/dist/plugins.mjs';
+import { createHooks } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/unstorage/drivers/fs.mjs';
+import file_58_47_47_47D_58_47Documents_47GitHub_47Directorio_45Activo_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js';
+import { digest, hash as hash$1 } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/ohash/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/youch-core/build/index.js';
-import { Youch } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/youch-core/build/index.js';
+import { Youch } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { getContext } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/unctx/dist/index.mjs';
-import { captureRawStackTrace, parseRawStackTrace } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/errx/dist/index.mjs';
-import { Server } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/socket.io/wrapper.mjs';
-import { defineNitroPlugin } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/nitropack/dist/runtime/plugin.mjs';
-import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
+import { getContext } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/unctx/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/errx/dist/index.mjs';
+import { Server } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/socket.io/wrapper.mjs';
+import { defineNitroPlugin } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/nitropack/dist/runtime/plugin.mjs';
+import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
 import { fileURLToPath } from 'node:url';
-import { dirname as dirname$1, resolve as resolve$1 } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/pathe/dist/index.mjs';
-import { walkResolver } from 'file://D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1 } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/pathe/dist/index.mjs';
+import { walkResolver } from 'file://D:/Documents/GitHub/Directorio-Activo/node_modules/unhead/dist/utils.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"D:/Desktop/proyectos a estregar/Directorio 2.0/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"D:/Documents/GitHub/Directorio-Activo/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -55,12 +55,12 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:/Desktop/proyectos a estregar/Directorio 2.0","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:/Desktop/proyectos a estregar/Directorio 2.0/server","watchOptions":{"ignored":[null]}}));
-storage.mount('cache:nuxt:payload', file_58_47_47_47D_58_47Desktop_47proyectos_3720a_3720estregar_47Directorio_37202_460_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js({"driver":"file:///D:/Desktop/proyectos%20a%20estregar/Directorio%202.0/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js","base":"D:/Desktop/proyectos a estregar/Directorio 2.0/.nuxt/cache/nuxt/payload"}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:/Desktop/proyectos a estregar/Directorio 2.0/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:/Desktop/proyectos a estregar/Directorio 2.0/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:/Desktop/proyectos a estregar/Directorio 2.0/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:/Documents/GitHub/Directorio-Activo","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:/Documents/GitHub/Directorio-Activo/server","watchOptions":{"ignored":[null]}}));
+storage.mount('cache:nuxt:payload', file_58_47_47_47D_58_47Documents_47GitHub_47Directorio_45Activo_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js({"driver":"file:///D:/Documents/GitHub/Directorio-Activo/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js","base":"D:/Documents/GitHub/Directorio-Activo/.nuxt/cache/nuxt/payload"}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:/Documents/GitHub/Directorio-Activo/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:/Documents/GitHub/Directorio-Activo/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:/Documents/GitHub/Directorio-Activo/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -648,7 +648,7 @@ const _inlineRuntimeConfig = {
   "public": {
     "wsEndpoint": "ws://localhost:3001"
   },
-  "databaseUrl": "postgresql://postgres:123456@localhost:5432/asset_control?schema=public"
+  "databaseUrl": "postgresql://postgres:postgres@localhost:5432/asset_control?schema=public"
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -2043,13 +2043,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _5q8Jt6UalGkl4OWd27QUXy7ey4u0T25r6pG0wWtoCsw = (function(nitro) {
+const _pUGPZO8su8YK4n0Gc9Qv3O8QRwIsEkUkrUSvfIuSTQ = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "D:/Desktop/proyectos a estregar/Directorio 2.0";
+const rootDir = "D:/Documents/GitHub/Directorio-Activo";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
 
@@ -2075,7 +2075,7 @@ const asyncContext = getContext("nuxt-dev", {
 	asyncContext: true,
 	AsyncLocalStorage
 });
-const _su8c6hF1n3vkmkcQV3HeCS2lelPrIc_1htVVp39wQ3Q = (nitroApp) => {
+const _ycW3DKWA7z_1DQGWysUcArwAAtNg_vqEsMD2jA38w = (nitroApp) => {
 	const handler = nitroApp.h3App.handler;
 	nitroApp.h3App.handler = (event) => {
 		return asyncContext.callAsync({
@@ -2150,7 +2150,7 @@ function onConsoleLog(callback) {
 	consola$1.wrapConsole();
 }
 
-const _YZqFUlI2vLuHVRpKziTkB8a2W0XI0E30eoZzXlL0KeI = defineNitroPlugin((nitroApp) => {
+const _5IvypT0xwB8OTC7puDMUhuPEPU6sbYQGmtyiRH5sDA = defineNitroPlugin((nitroApp) => {
   nitroApp.router.use("/socket.io", () => {
   });
   nitroApp.hooks.hook("request", (event) => {
@@ -2171,7 +2171,7 @@ const _YZqFUlI2vLuHVRpKziTkB8a2W0XI0E30eoZzXlL0KeI = defineNitroPlugin((nitroApp
             socket.join(token);
             console.log(`[SOCKET] Agente registrado en sala: ${token}`);
             socket.emit("confirmacion", {
-              mensaje: "Agente registrado correctamente en el canal seguro RENOVA.",
+              mensaje: "Agente registrado correctamente en el canal seguro Directorio Activo Ren.",
               sala: token
             });
           }
@@ -2185,9 +2185,9 @@ const _YZqFUlI2vLuHVRpKziTkB8a2W0XI0E30eoZzXlL0KeI = defineNitroPlugin((nitroApp
 });
 
 const plugins = [
-  _5q8Jt6UalGkl4OWd27QUXy7ey4u0T25r6pG0wWtoCsw,
-_su8c6hF1n3vkmkcQV3HeCS2lelPrIc_1htVVp39wQ3Q,
-_YZqFUlI2vLuHVRpKziTkB8a2W0XI0E30eoZzXlL0KeI,
+  _pUGPZO8su8YK4n0Gc9Qv3O8QRwIsEkUkrUSvfIuSTQ,
+_ycW3DKWA7z_1DQGWysUcArwAAtNg_vqEsMD2jA38w,
+_5IvypT0xwB8OTC7puDMUhuPEPU6sbYQGmtyiRH5sDA,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
@@ -2216,7 +2216,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _PwDWQz = eventHandler((event) => {
+const _yOnCC0 = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -2851,103 +2851,105 @@ async function getIslandContext(event) {
 	};
 }
 
-const _lazy_uYKYb7 = () => Promise.resolve().then(function () { return audit_post$1; });
-const _lazy_c7WU5j = () => Promise.resolve().then(function () { return accesos_get$1; });
-const _lazy_XH_BDT = () => Promise.resolve().then(function () { return conceder_post$1; });
-const _lazy_L0nFix = () => Promise.resolve().then(function () { return index_get$b; });
-const _lazy_FzlxVO = () => Promise.resolve().then(function () { return toggleAcceso_post$1; });
-const _lazy_LOKXf2 = () => Promise.resolve().then(function () { return index_get$9; });
-const _lazy_SFUNX5 = () => Promise.resolve().then(function () { return _id__delete$7; });
-const _lazy_cWIlgh = () => Promise.resolve().then(function () { return _id__put$7; });
-const _lazy_KpkFtk = () => Promise.resolve().then(function () { return create_post$7; });
-const _lazy_QcDbWJ = () => Promise.resolve().then(function () { return index_get$7; });
-const _lazy_cDOTve = () => Promise.resolve().then(function () { return dashboard_get$1; });
-const _lazy_UbdWMt = () => Promise.resolve().then(function () { return stats_get$1; });
-const _lazy_KG10vt = () => Promise.resolve().then(function () { return _id__post$1; });
-const _lazy_bfbWiP = () => Promise.resolve().then(function () { return _id__get$3; });
-const _lazy_ugEuO_ = () => Promise.resolve().then(function () { return _id__get$1; });
-const _lazy_8UpqqQ = () => Promise.resolve().then(function () { return index_get$5; });
-const _lazy_bR0ZPu = () => Promise.resolve().then(function () { return _id__delete$5; });
-const _lazy_RYJlPx = () => Promise.resolve().then(function () { return _id__put$5; });
-const _lazy_IYxwk9 = () => Promise.resolve().then(function () { return accion_post$1; });
-const _lazy_Y08dGJ = () => Promise.resolve().then(function () { return collect_post$1; });
-const _lazy_uRIltB = () => Promise.resolve().then(function () { return create_post$5; });
-const _lazy_ynztkh = () => Promise.resolve().then(function () { return index_get$3; });
-const _lazy_HyA3Pu = () => Promise.resolve().then(function () { return ping_post$1; });
-const _lazy_S5UtlH = () => Promise.resolve().then(function () { return _id__delete$3; });
-const _lazy_qSYQUc = () => Promise.resolve().then(function () { return _id__put$3; });
-const _lazy_NZUkwi = () => Promise.resolve().then(function () { return authUrl_get$1; });
-const _lazy_hEK75J = () => Promise.resolve().then(function () { return callback_get$1; });
-const _lazy_vAp5GH = () => Promise.resolve().then(function () { return create_post$3; });
-const _lazy_rVsLi9 = () => Promise.resolve().then(function () { return exchangeCode_post$1; });
-const _lazy_0ABtfJ = () => Promise.resolve().then(function () { return sincronizar_post$5; });
-const _lazy_E7eRT4 = () => Promise.resolve().then(function () { return status_get$1; });
-const _lazy_6HovKL = () => Promise.resolve().then(function () { return toggleStatus_post$3; });
-const _lazy_K0HI4z = () => Promise.resolve().then(function () { return users_get$3; });
-const _lazy_Dh7Sg_ = () => Promise.resolve().then(function () { return sincronizar_post$3; });
-const _lazy_wjxHJn = () => Promise.resolve().then(function () { return index_get$1; });
-const _lazy_zHc0Ia = () => Promise.resolve().then(function () { return _id__delete$1; });
-const _lazy_r6Rput = () => Promise.resolve().then(function () { return _id__put$1; });
-const _lazy_MJi1UX = () => Promise.resolve().then(function () { return create_post$1; });
-const _lazy_UTJpZx = () => Promise.resolve().then(function () { return sincronizar_post$1; });
-const _lazy_K_afc_ = () => Promise.resolve().then(function () { return toggleStatus_post$1; });
-const _lazy_N6vvtU = () => Promise.resolve().then(function () { return users_get$1; });
-const _lazy_ixpIaV = () => Promise.resolve().then(function () { return aplicar_post$1; });
-const _lazy_NvVUId = () => Promise.resolve().then(function () { return install_ps1$1; });
-const _lazy_L11l5V = () => Promise.resolve().then(function () { return renAgent_js$1; });
-const _lazy_AVWKxy = () => Promise.resolve().then(function () { return renLock_ps1$1; });
-const _lazy_UQOXQr = () => Promise.resolve().then(function () { return renderer; });
+const _lazy_ArYmBw = () => Promise.resolve().then(function () { return audit_post$1; });
+const _lazy_6VKem5 = () => Promise.resolve().then(function () { return index_get$d; });
+const _lazy_4eGIlM = () => Promise.resolve().then(function () { return accesos_get$1; });
+const _lazy_7afsfD = () => Promise.resolve().then(function () { return conceder_post$1; });
+const _lazy_4jSxBj = () => Promise.resolve().then(function () { return index_get$b; });
+const _lazy_ZUc7u1 = () => Promise.resolve().then(function () { return toggleAcceso_post$1; });
+const _lazy_DxTyQS = () => Promise.resolve().then(function () { return index_get$9; });
+const _lazy_wnZ1iw = () => Promise.resolve().then(function () { return _id__delete$7; });
+const _lazy_EG7j75 = () => Promise.resolve().then(function () { return _id__put$7; });
+const _lazy_zL9LJk = () => Promise.resolve().then(function () { return create_post$7; });
+const _lazy_Fnpddm = () => Promise.resolve().then(function () { return index_get$7; });
+const _lazy_WDEgox = () => Promise.resolve().then(function () { return dashboard_get$1; });
+const _lazy_TlvfnO = () => Promise.resolve().then(function () { return stats_get$1; });
+const _lazy_y3qy3f = () => Promise.resolve().then(function () { return _id__post$1; });
+const _lazy_Zrv6o8 = () => Promise.resolve().then(function () { return _id__get$3; });
+const _lazy_oO3jWC = () => Promise.resolve().then(function () { return _id__get$1; });
+const _lazy_9RbKT7 = () => Promise.resolve().then(function () { return index_get$5; });
+const _lazy_ep5SsM = () => Promise.resolve().then(function () { return _id__delete$5; });
+const _lazy_W1nZFb = () => Promise.resolve().then(function () { return _id__put$5; });
+const _lazy_xMhG7s = () => Promise.resolve().then(function () { return accion_post$1; });
+const _lazy_ADbDcG = () => Promise.resolve().then(function () { return collect_post$1; });
+const _lazy_kGqOtd = () => Promise.resolve().then(function () { return create_post$5; });
+const _lazy__YOggo = () => Promise.resolve().then(function () { return index_get$3; });
+const _lazy_parnc1 = () => Promise.resolve().then(function () { return ping_post$1; });
+const _lazy_mL7bNO = () => Promise.resolve().then(function () { return _id__delete$3; });
+const _lazy_zW8xG9 = () => Promise.resolve().then(function () { return _id__put$3; });
+const _lazy_5bRIRr = () => Promise.resolve().then(function () { return authUrl_get$1; });
+const _lazy_J55zch = () => Promise.resolve().then(function () { return callback_get$1; });
+const _lazy_rcurUH = () => Promise.resolve().then(function () { return create_post$3; });
+const _lazy_pSrLRI = () => Promise.resolve().then(function () { return exchangeCode_post$1; });
+const _lazy_Atj1hY = () => Promise.resolve().then(function () { return sincronizar_post$5; });
+const _lazy_eTf2Ga = () => Promise.resolve().then(function () { return status_get$1; });
+const _lazy_Gde_HU = () => Promise.resolve().then(function () { return toggleStatus_post$3; });
+const _lazy_6SXANl = () => Promise.resolve().then(function () { return users_get$3; });
+const _lazy_VdAxv6 = () => Promise.resolve().then(function () { return sincronizar_post$3; });
+const _lazy_OwAlpu = () => Promise.resolve().then(function () { return index_get$1; });
+const _lazy_8nkOfi = () => Promise.resolve().then(function () { return _id__delete$1; });
+const _lazy_jrmEfk = () => Promise.resolve().then(function () { return _id__put$1; });
+const _lazy_stDkr_ = () => Promise.resolve().then(function () { return create_post$1; });
+const _lazy__aR2vp = () => Promise.resolve().then(function () { return sincronizar_post$1; });
+const _lazy_H2lrKW = () => Promise.resolve().then(function () { return toggleStatus_post$1; });
+const _lazy_myw_wz = () => Promise.resolve().then(function () { return users_get$1; });
+const _lazy_KYoPwH = () => Promise.resolve().then(function () { return aplicar_post$1; });
+const _lazy_FKVnDn = () => Promise.resolve().then(function () { return install_ps1$1; });
+const _lazy_KJYKLl = () => Promise.resolve().then(function () { return renAgent_js$1; });
+const _lazy_69PE4O = () => Promise.resolve().then(function () { return renLock_ps1$1; });
+const _lazy_DqtFUo = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
-  { route: '', handler: _PwDWQz, lazy: false, middleware: true, method: undefined },
-  { route: '/api/actions/audit', handler: _lazy_uYKYb7, lazy: true, middleware: false, method: "post" },
-  { route: '/api/aplicaciones/accesos', handler: _lazy_c7WU5j, lazy: true, middleware: false, method: "get" },
-  { route: '/api/aplicaciones/conceder', handler: _lazy_XH_BDT, lazy: true, middleware: false, method: "post" },
-  { route: '/api/aplicaciones', handler: _lazy_L0nFix, lazy: true, middleware: false, method: "get" },
-  { route: '/api/aplicaciones/toggle-acceso', handler: _lazy_FzlxVO, lazy: true, middleware: false, method: "post" },
-  { route: '/api/auditorias', handler: _lazy_LOKXf2, lazy: true, middleware: false, method: "get" },
-  { route: '/api/colaboradores/:id', handler: _lazy_SFUNX5, lazy: true, middleware: false, method: "delete" },
-  { route: '/api/colaboradores/:id', handler: _lazy_cWIlgh, lazy: true, middleware: false, method: "put" },
-  { route: '/api/colaboradores/create', handler: _lazy_KpkFtk, lazy: true, middleware: false, method: "post" },
-  { route: '/api/colaboradores', handler: _lazy_QcDbWJ, lazy: true, middleware: false, method: "get" },
-  { route: '/api/dashboard', handler: _lazy_cDOTve, lazy: true, middleware: false, method: "get" },
-  { route: '/api/dashboard/stats', handler: _lazy_UbdWMt, lazy: true, middleware: false, method: "get" },
-  { route: '/api/desvinculacion/iniciar/:id', handler: _lazy_KG10vt, lazy: true, middleware: false, method: "post" },
-  { route: '/api/desvinculacion/wizard/:id', handler: _lazy_bfbWiP, lazy: true, middleware: false, method: "get" },
-  { route: '/api/devices/:id', handler: _lazy_ugEuO_, lazy: true, middleware: false, method: "get" },
-  { route: '/api/devices', handler: _lazy_8UpqqQ, lazy: true, middleware: false, method: "get" },
-  { route: '/api/equipos/:id', handler: _lazy_bR0ZPu, lazy: true, middleware: false, method: "delete" },
-  { route: '/api/equipos/:id', handler: _lazy_RYJlPx, lazy: true, middleware: false, method: "put" },
-  { route: '/api/equipos/accion', handler: _lazy_IYxwk9, lazy: true, middleware: false, method: "post" },
-  { route: '/api/equipos/collect', handler: _lazy_Y08dGJ, lazy: true, middleware: false, method: "post" },
-  { route: '/api/equipos/create', handler: _lazy_uRIltB, lazy: true, middleware: false, method: "post" },
-  { route: '/api/equipos', handler: _lazy_ynztkh, lazy: true, middleware: false, method: "get" },
-  { route: '/api/equipos/ping', handler: _lazy_HyA3Pu, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/:id', handler: _lazy_S5UtlH, lazy: true, middleware: false, method: "delete" },
-  { route: '/api/google/:id', handler: _lazy_qSYQUc, lazy: true, middleware: false, method: "put" },
-  { route: '/api/google/auth-url', handler: _lazy_NZUkwi, lazy: true, middleware: false, method: "get" },
-  { route: '/api/google/callback', handler: _lazy_hEK75J, lazy: true, middleware: false, method: "get" },
-  { route: '/api/google/create', handler: _lazy_vAp5GH, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/exchange-code', handler: _lazy_rVsLi9, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/sincronizar', handler: _lazy_0ABtfJ, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/status', handler: _lazy_E7eRT4, lazy: true, middleware: false, method: "get" },
-  { route: '/api/google/toggle-status', handler: _lazy_6HovKL, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/users', handler: _lazy_K0HI4z, lazy: true, middleware: false, method: "get" },
-  { route: '/api/jira/sincronizar', handler: _lazy_Dh7Sg_, lazy: true, middleware: false, method: "post" },
-  { route: '/api/licenses', handler: _lazy_wjxHJn, lazy: true, middleware: false, method: "get" },
-  { route: '/api/microsoft/:id', handler: _lazy_zHc0Ia, lazy: true, middleware: false, method: "delete" },
-  { route: '/api/microsoft/:id', handler: _lazy_r6Rput, lazy: true, middleware: false, method: "put" },
-  { route: '/api/microsoft/create', handler: _lazy_MJi1UX, lazy: true, middleware: false, method: "post" },
-  { route: '/api/microsoft/sincronizar', handler: _lazy_UTJpZx, lazy: true, middleware: false, method: "post" },
-  { route: '/api/microsoft/toggle-status', handler: _lazy_K_afc_, lazy: true, middleware: false, method: "post" },
-  { route: '/api/microsoft/users', handler: _lazy_N6vvtU, lazy: true, middleware: false, method: "get" },
-  { route: '/api/politicas/aplicar', handler: _lazy_ixpIaV, lazy: true, middleware: false, method: "post" },
-  { route: '/agent/install.ps1', handler: _lazy_NvVUId, lazy: true, middleware: false, method: undefined },
-  { route: '/agent/ren-agent.js', handler: _lazy_L11l5V, lazy: true, middleware: false, method: undefined },
-  { route: '/agent/ren-lock.ps1', handler: _lazy_AVWKxy, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_UQOXQr, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _yOnCC0, lazy: false, middleware: true, method: undefined },
+  { route: '/api/actions/audit', handler: _lazy_ArYmBw, lazy: true, middleware: false, method: "post" },
+  { route: '/api/active-directory', handler: _lazy_6VKem5, lazy: true, middleware: false, method: "get" },
+  { route: '/api/aplicaciones/accesos', handler: _lazy_4eGIlM, lazy: true, middleware: false, method: "get" },
+  { route: '/api/aplicaciones/conceder', handler: _lazy_7afsfD, lazy: true, middleware: false, method: "post" },
+  { route: '/api/aplicaciones', handler: _lazy_4jSxBj, lazy: true, middleware: false, method: "get" },
+  { route: '/api/aplicaciones/toggle-acceso', handler: _lazy_ZUc7u1, lazy: true, middleware: false, method: "post" },
+  { route: '/api/auditorias', handler: _lazy_DxTyQS, lazy: true, middleware: false, method: "get" },
+  { route: '/api/colaboradores/:id', handler: _lazy_wnZ1iw, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/colaboradores/:id', handler: _lazy_EG7j75, lazy: true, middleware: false, method: "put" },
+  { route: '/api/colaboradores/create', handler: _lazy_zL9LJk, lazy: true, middleware: false, method: "post" },
+  { route: '/api/colaboradores', handler: _lazy_Fnpddm, lazy: true, middleware: false, method: "get" },
+  { route: '/api/dashboard', handler: _lazy_WDEgox, lazy: true, middleware: false, method: "get" },
+  { route: '/api/dashboard/stats', handler: _lazy_TlvfnO, lazy: true, middleware: false, method: "get" },
+  { route: '/api/desvinculacion/iniciar/:id', handler: _lazy_y3qy3f, lazy: true, middleware: false, method: "post" },
+  { route: '/api/desvinculacion/wizard/:id', handler: _lazy_Zrv6o8, lazy: true, middleware: false, method: "get" },
+  { route: '/api/devices/:id', handler: _lazy_oO3jWC, lazy: true, middleware: false, method: "get" },
+  { route: '/api/devices', handler: _lazy_9RbKT7, lazy: true, middleware: false, method: "get" },
+  { route: '/api/equipos/:id', handler: _lazy_ep5SsM, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/equipos/:id', handler: _lazy_W1nZFb, lazy: true, middleware: false, method: "put" },
+  { route: '/api/equipos/accion', handler: _lazy_xMhG7s, lazy: true, middleware: false, method: "post" },
+  { route: '/api/equipos/collect', handler: _lazy_ADbDcG, lazy: true, middleware: false, method: "post" },
+  { route: '/api/equipos/create', handler: _lazy_kGqOtd, lazy: true, middleware: false, method: "post" },
+  { route: '/api/equipos', handler: _lazy__YOggo, lazy: true, middleware: false, method: "get" },
+  { route: '/api/equipos/ping', handler: _lazy_parnc1, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/:id', handler: _lazy_mL7bNO, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/google/:id', handler: _lazy_zW8xG9, lazy: true, middleware: false, method: "put" },
+  { route: '/api/google/auth-url', handler: _lazy_5bRIRr, lazy: true, middleware: false, method: "get" },
+  { route: '/api/google/callback', handler: _lazy_J55zch, lazy: true, middleware: false, method: "get" },
+  { route: '/api/google/create', handler: _lazy_rcurUH, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/exchange-code', handler: _lazy_pSrLRI, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/sincronizar', handler: _lazy_Atj1hY, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/status', handler: _lazy_eTf2Ga, lazy: true, middleware: false, method: "get" },
+  { route: '/api/google/toggle-status', handler: _lazy_Gde_HU, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/users', handler: _lazy_6SXANl, lazy: true, middleware: false, method: "get" },
+  { route: '/api/jira/sincronizar', handler: _lazy_VdAxv6, lazy: true, middleware: false, method: "post" },
+  { route: '/api/licenses', handler: _lazy_OwAlpu, lazy: true, middleware: false, method: "get" },
+  { route: '/api/microsoft/:id', handler: _lazy_8nkOfi, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/microsoft/:id', handler: _lazy_jrmEfk, lazy: true, middleware: false, method: "put" },
+  { route: '/api/microsoft/create', handler: _lazy_stDkr_, lazy: true, middleware: false, method: "post" },
+  { route: '/api/microsoft/sincronizar', handler: _lazy__aR2vp, lazy: true, middleware: false, method: "post" },
+  { route: '/api/microsoft/toggle-status', handler: _lazy_H2lrKW, lazy: true, middleware: false, method: "post" },
+  { route: '/api/microsoft/users', handler: _lazy_myw_wz, lazy: true, middleware: false, method: "get" },
+  { route: '/api/politicas/aplicar', handler: _lazy_KYoPwH, lazy: true, middleware: false, method: "post" },
+  { route: '/agent/install.ps1', handler: _lazy_FKVnDn, lazy: true, middleware: false, method: undefined },
+  { route: '/agent/ren-agent.js', handler: _lazy_KJYKLl, lazy: true, middleware: false, method: undefined },
+  { route: '/agent/ren-lock.ps1', handler: _lazy_69PE4O, lazy: true, middleware: false, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_DqtFUo, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_UQOXQr, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_DqtFUo, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -3344,6 +3346,242 @@ const audit_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProper
   default: audit_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
+const index_get$c = defineEventHandler(async () => {
+  return {
+    domain: {
+      name: "renova.local",
+      netbios: "RENOVA",
+      forestLevel: "Windows Server 2022",
+      domainControllers: [
+        { name: "DC01-BOG.renova.local", ip: "192.168.10.5", role: "PDC Emulator / GC", status: "Online", latencyMs: 2 },
+        { name: "DC02-BOG.renova.local", ip: "192.168.10.6", role: "Replica / GC", status: "Online", latencyMs: 3 }
+      ]
+    },
+    // 1. Estructura de Unidades Organizativas (OUs)
+    organizationalUnits: [
+      {
+        id: "ou-corporativo",
+        name: "RENOVA Corporativo",
+        dn: "OU=RENOVA Corporativo,DC=renova,DC=local",
+        type: "Root_OU",
+        description: "Ra\xEDz organizacional principal",
+        objectCount: 450,
+        children: [
+          {
+            id: "ou-bogota",
+            name: "Sede Bogot\xE1",
+            dn: "OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local",
+            type: "Location",
+            objectCount: 280,
+            children: [
+              {
+                id: "ou-bog-ti",
+                name: "Tecnolog\xEDa e Infraestructura",
+                dn: "OU=TI,OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local",
+                type: "Department",
+                users: 24,
+                computers: 32,
+                gposLinked: ["GPO-Security-Baseline", "GPO-DriveMaps-TI", "GPO-LAPS-Enforce"]
+              },
+              {
+                id: "ou-bog-fin",
+                name: "Finanzas y Contabilidad",
+                dn: "OU=Finanzas,OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local",
+                type: "Department",
+                users: 45,
+                computers: 50,
+                gposLinked: ["GPO-Security-Baseline", "GPO-USB-Block", "GPO-DriveMaps-Finanzas"]
+              },
+              {
+                id: "ou-bog-rrhh",
+                name: "Talento Humano",
+                dn: "OU=RRHH,OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local",
+                type: "Department",
+                users: 18,
+                computers: 20,
+                gposLinked: ["GPO-Security-Baseline", "GPO-DriveMaps-General"]
+              }
+            ]
+          },
+          {
+            id: "ou-medellin",
+            name: "Sede Medell\xEDn",
+            dn: "OU=Sede Medellin,OU=RENOVA Corporativo,DC=renova,DC=local",
+            type: "Location",
+            objectCount: 120,
+            children: [
+              {
+                id: "ou-med-ops",
+                name: "Operaciones y Log\xEDstica",
+                dn: "OU=Operaciones,OU=Sede Medellin,OU=RENOVA Corporativo,DC=renova,DC=local",
+                type: "Department",
+                users: 65,
+                computers: 70,
+                gposLinked: ["GPO-Security-Baseline", "GPO-DriveMaps-Ops"]
+              }
+            ]
+          },
+          {
+            id: "ou-devices",
+            name: "Dispositivos y Equipos",
+            dn: "OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local",
+            type: "Container",
+            objectCount: 180,
+            children: [
+              { id: "ou-workstations", name: "Workstations (Laptops & Desktops)", dn: "OU=Workstations,OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local", type: "DeviceGroup", count: 145 },
+              { id: "ou-servers", name: "Servidores de Infraestructura", dn: "OU=Servidores,OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local", type: "DeviceGroup", count: 25 },
+              { id: "ou-kiosks", name: "Kioskos & Terminales", dn: "OU=Kioskos,OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local", type: "DeviceGroup", count: 10 }
+            ]
+          }
+        ]
+      }
+    ],
+    // 2. Políticas de Grupo (GPOs)
+    gpos: [
+      {
+        id: "GPO-Security-Baseline",
+        name: "Baseline de Seguridad Dominio 2026",
+        scope: "Dominio / Ra\xEDz OU",
+        status: "Enforced",
+        category: "Seguridad Hardening",
+        settings: {
+          passwordMinLength: 14,
+          lockoutThreshold: 5,
+          lapsEnabled: true,
+          auditPol: "Success & Failure"
+        },
+        description: "Aplica hardening CIS Benchmark, pol\xEDtica de contrase\xF1as complejas, bloqueo por fallos de inicio de sesi\xF3n y gesti\xF3n LAPS de admin local."
+      },
+      {
+        id: "GPO-DriveMaps-TI",
+        name: "Mapeo de Unidades de Red - TI & Servidores",
+        scope: "OU=TI",
+        status: "Active",
+        category: "Red & Mapeos",
+        settings: {
+          drives: [
+            { letter: "Z:", path: "\\\\dc01-bog\\CompartidaTI", label: "Recursos TI" },
+            { letter: "Y:", path: "\\\\dc01-bog\\Backups", label: "Repositorio Backups" }
+          ]
+        },
+        description: "Mapea unidades de red empresariales autom\xE1ticamente seg\xFAn el departamento del usuario."
+      },
+      {
+        id: "GPO-USB-Block",
+        name: "Restricci\xF3n de Software & Puertos USB",
+        scope: "OU=Finanzas, OU=RRHH",
+        status: "Active",
+        category: "Restricci\xF3n de Dispositivos",
+        settings: {
+          usbStorage: "Disabled",
+          appLocker: "Enforce Whitelist Rules",
+          executablesAllowed: ["%PROGRAMFILES%\\*"]
+        },
+        description: "Inhabilita montaje de memorias USB/Discos externos y aplica reglas de AppLocker para restringir binarios no autorizados."
+      },
+      {
+        id: "GPO-LogonScripts",
+        name: "Script PowerShell de Inicio & Auditor\xEDa de Agente",
+        scope: "OU=Workstations",
+        status: "Active",
+        category: "Ejecuci\xF3n de Scripts",
+        settings: {
+          scriptType: "PowerShell Startup",
+          executionPolicy: "Bypass",
+          scriptPath: "\\\\renova.local\\sysvol\\renova.local\\scripts\\CheckRenovaAgent.ps1"
+        },
+        description: "Ejecuta scripts de validaci\xF3n de agente MDM y verificaci\xF3n de inventario en el arranque de la m\xE1quina."
+      }
+    ],
+    // 3. Servicios de Red Integrados (DNS / DHCP)
+    networkServices: {
+      dns: {
+        status: "Healthy",
+        primaryServer: "192.168.10.5 (DC01-BOG)",
+        secondaryServer: "192.168.10.6 (DC02-BOG)",
+        forwardZones: [
+          { name: "renova.local", type: "Active Directory Integrated", recordsCount: 420, dynamicUpdates: "Secure Only" },
+          { name: "_msdcs.renova.local", type: "Forest DNS Zone", recordsCount: 85, dynamicUpdates: "Secure Only" }
+        ],
+        reverseZones: [
+          { name: "10.168.192.in-addr.arpa", type: "Active Directory Integrated", recordsCount: 310 }
+        ],
+        queryResponseTimeMs: 1.2
+      },
+      dhcp: {
+        status: "Active / High Availability Mode (Failover 50/50)",
+        scopes: [
+          {
+            name: "Scope-Bogota-LAN",
+            subnet: "192.168.10.0/24",
+            range: "192.168.10.100 - 192.168.10.220",
+            totalIPs: 121,
+            activeLeases: 89,
+            reservations: 12,
+            utilizationPct: 73.5
+          },
+          {
+            name: "Scope-Medellin-LAN",
+            subnet: "192.168.20.0/24",
+            range: "192.168.20.100 - 192.168.20.200",
+            totalIPs: 101,
+            activeLeases: 45,
+            reservations: 8,
+            utilizationPct: 44.5
+          }
+        ]
+      }
+    },
+    // 4. Esquema de Permisos / RBAC (Delegación de Control AD)
+    rbacScheme: {
+      model: "Tiered Administrative Model (Tier 0 / Tier 1 / Tier 2)",
+      roles: [
+        {
+          id: "role-tier0",
+          name: "Domain Admin / Enterprise Admin (Tier 0)",
+          tier: "Tier 0",
+          membersCount: 2,
+          scope: "Control Total del Bosque AD",
+          description: "Privilegios absolutos restringidos exclusivamente a la administraci\xF3n de Domain Controllers e infraestructura cr\xEDtica.",
+          permissions: ["Full Control sobre Dominio", "Modificaci\xF3n de Esquema AD", "Gesti\xF3n de DCs"]
+        },
+        {
+          id: "role-tier1",
+          name: "Server Admin (Tier 1)",
+          tier: "Tier 1",
+          membersCount: 5,
+          scope: "Servidores de Aplicaci\xF3n y Miembros",
+          description: "Administraci\xF3n de servidores de aplicaciones corporativas sin acceso a Domain Controllers ni cuentas de Dominio.",
+          permissions: ["Admin Local en Servidores Miembro", "Reinicio de Servicios", "Lectura AD"]
+        },
+        {
+          id: "role-tier2-helpdesk",
+          name: "Helpdesk Delegado (Tier 2)",
+          tier: "Tier 2",
+          membersCount: 12,
+          scope: "OU=Workstations & OU=Departamentos",
+          description: "Permisos m\xEDnimos delegados a nivel de OU para desbloqueo de usuarios, reset de contrase\xF1as y unirse a dominio.",
+          permissions: ["Reset Password Usuarios OU", "Desbloquear Cuentas", "Modificar Atributos Tel\xE9fono/Oficina"]
+        },
+        {
+          id: "role-audit",
+          name: "Auditor de Seguridad y Cumplimiento",
+          tier: "Auditor\xEDa",
+          membersCount: 3,
+          scope: "Lectura Global AD & Logs",
+          description: "Acceso de solo lectura para auditor\xEDas de cumplimiento, revisi\xF3n de GPOs y exportaci\xF3n de reportes RBAC.",
+          permissions: ["Read-Only All AD Objects", "Read Security Audit Logs", "Export GPO Reports"]
+        }
+      ]
+    }
+  };
+});
+
+const index_get$d = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: index_get$c
+}, Symbol.toStringTag, { value: 'Module' }));
+
 const accesos_get = defineEventHandler(async (event) => {
   try {
     const query = getQuery$1(event);
@@ -3463,7 +3701,7 @@ async function setSophosEndpointIsolation(hostname, isolate) {
       },
       body: JSON.stringify({
         enabled: isolate,
-        comment: isolate ? "Aislamiento preventivo: Acceso revocado en RENOVA MDM" : "Aislamiento removido: Acceso concedido en RENOVA MDM",
+        comment: isolate ? "Aislamiento preventivo: Acceso revocado en Directorio Activo Ren" : "Aislamiento removido: Acceso concedido en Directorio Activo Ren",
         ids: [endpointId]
       })
     });
@@ -4376,7 +4614,7 @@ const _id__post = defineEventHandler(async (event) => {
           io.to(eq.token_seguridad).emit("comando_bloqueo", {
             evento: "comando_bloqueo",
             hostname: eq.hostname,
-            mensaje: "Su pantalla ha sido bloqueada remotamente por el Asistente de Desvinculaci\xF3n de RENOVA.",
+            mensaje: "Su pantalla ha sido bloqueada remotamente por el Asistente de Desvinculaci\xF3n de Directorio Activo Ren.",
             timestamp: (/* @__PURE__ */ new Date()).toISOString()
           });
           console.log(`[SOCKET] Comando de bloqueo enviado para: ${eq.hostname}`);

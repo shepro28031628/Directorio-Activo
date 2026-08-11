@@ -86,7 +86,7 @@ const deployPolicies = async () => {
     <!-- Banner Informativo -->
     <div class="glass-card p-5 bg-gradient-to-r from-violet-500 to-indigo-600 text-white border-none shadow-md shadow-violet-500/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
       <div class="space-y-1">
-        <h3 class="font-extrabold text-md">Agente RENOVA MDM Daemon</h3>
+        <h3 class="font-extrabold text-md">Agente Directorio Activo Ren Daemon</h3>
         <p class="text-xs text-indigo-100">Las políticas aplicadas son descargadas por el agente de seguridad en Windows y macOS en intervalos de 10 segundos o forzadas vía WebSocket en tiempo real (&lt;500ms).</p>
       </div>
       <div class="flex gap-4 text-center shrink-0">

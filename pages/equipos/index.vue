@@ -127,7 +127,7 @@ const openDrawer = (eq: any) => {
   // Reiniciar terminal
   const agentStatus = eq.ultimo_ping ? `Último ping: ${new Date(eq.ultimo_ping).toLocaleString()}` : 'Sin conexión de agente'
   terminalHistory.value = [
-    `RENOVAMDM SECURE SHELL v1.2.0 [Dispositivo: ${eq.hostname}]`,
+    `DIRECTORIO ACTIVO REN SECURE SHELL v1.2.0 [Dispositivo: ${eq.hostname}]`,
     `Conectado vía WebSocket seguro. Agente activo.`,
     agentStatus,
     `Escribe 'help' para ver la lista de comandos disponibles.`
@@ -202,7 +202,7 @@ const runTerminalCommand = async () => {
     } else if (normalizedCmd === 'get-services') {
       terminalHistory.value.push(
         'SERVICIOS DE SEGURIDAD ACTIVOS EN AGENTE:',
-        '  [RUNNING]  renova-agent-service.exe (v2.0)',
+        '  [RUNNING]  directorio-activo-ren-agent-service.exe (v2.0)',
         '  [RUNNING]  win-defender-monitor.sys (Firewall)',
         '  [RUNNING]  encryption-watcher.dll (BitLocker)',
         '  [STOPPED]  usb-block-driver.sys (Restricción USB deshabilitada)'
@@ -237,10 +237,10 @@ const runTerminalCommand = async () => {
     <!-- Encabezado -->
     <div class="flex justify-between items-center flex-wrap gap-3">
       <div>
-        <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 font-sans">
-          Dispositivos Enrolados <span class="text-brand-purple">MDM</span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white font-sans">
+          Dispositivos Enrolados <span class="gradient-text-purple">MDM</span>
         </h1>
-        <p class="text-slate-500 text-sm mt-1">Supervisión en vivo, telemetría y administración remota de estaciones de trabajo.</p>
+        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">Supervisión en vivo, telemetría y administración remota de estaciones de trabajo.</p>
       </div>
       <div class="flex gap-3 flex-wrap">
         <!-- Sincronizar con Jira -->

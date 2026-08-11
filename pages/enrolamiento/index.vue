@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 
 const activeTab = ref('desktop')
-const enrollmentToken = ref('tok_renovamdm_bf78a4c9e31d2026')
+const enrollmentToken = ref('tok_directorio_activo_ren_bf78a4c9e31d2026')
 const copied = ref(false)
 const currentOrigin = ref('http://localhost:3000')
 
@@ -85,7 +85,7 @@ const copyToClipboard = () => {
 
         <!-- Alerta de seguridad token -->
         <div class="p-4 rounded-xl bg-amber-50 border border-amber-200/60 text-xs text-amber-800 leading-relaxed">
-          <strong>Advertencia de Seguridad:</strong> Este token es único para el tenant de Renova. No compartas este script con personas externas, ya que permite enrolar cualquier dispositivo de forma automática con políticas predeterminadas de la organización.
+          <strong>Advertencia de Seguridad:</strong> Este token es único para el tenant de Directorio Activo Ren. No compartas este script con personas externas, ya que permite enrolar cualquier dispositivo de forma automática con políticas predeterminadas de la organización.
         </div>
       </div>
 

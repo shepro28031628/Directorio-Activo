@@ -6,6 +6,9 @@ declare module "nitropack/types" {
     '/api/actions/audit': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/actions/audit.post').default>>>>
     }
+    '/api/active-directory': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/active-directory/index.get').default>>>>
+    }
     '/api/aplicaciones/accesos': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/aplicaciones/accesos.get').default>>>>
     }
