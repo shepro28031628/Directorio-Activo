@@ -1,7 +1,8 @@
-// server/utils/prisma.ts
-import { PrismaClient } from '@prisma/client'
+import PrismaClientPkg from '@prisma/client'
 
-let prisma: PrismaClient
+const PrismaClient = (PrismaClientPkg as any).PrismaClient || PrismaClientPkg
+
+let prisma: any
 
 if (process.env.NODE_ENV === 'production') {
   prisma = new PrismaClient()
