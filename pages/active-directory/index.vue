@@ -30,7 +30,7 @@ const inspectDeviceFromNode = (deviceName: string) => {
   selectedDeviceForInspector.value = {
     hostname: deviceName,
     so: 'Windows 11 Enterprise 23H2',
-    windows_user: 'RENOVA\\user.ad',
+    windows_user: 'REN\\user.ad',
     ip_registro: '192.168.10.201',
     mac_address: '00:1C:42:00:00:08',
     serial: 'SN-AD-NODE-2026'
@@ -191,11 +191,11 @@ onMounted(() => {
             <!-- NODO RAÍZ (DOMINIO) -->
             <div class="flex justify-center mb-8">
               <div 
-                @click="selectNode('Dominio renova.local', 'DC=renova,DC=local', 450)"
+                @click="selectNode('Dominio ren.local', 'DC=ren,DC=local', 450)"
                 class="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 border border-white/30 text-white font-mono font-bold text-sm shadow-glow-cyan cursor-pointer hover:scale-105 transition-all text-center flex items-center gap-3"
               >
                 <span class="w-3 h-3 rounded-full bg-white animate-ping"></span>
-                🌳 RENOVA Corporativo (DC=renova,DC=local)
+                🌳 REN Corporativo (DC=ren,DC=local)
                 <span class="px-2 py-0.5 rounded-full bg-black/40 text-xs">450 Objetos</span>
               </div>
             </div>
@@ -206,7 +206,7 @@ onMounted(() => {
               <!-- RAMA SEDE BOGOTÁ -->
               <div class="flex flex-col items-center space-y-4 max-w-xs">
                 <div 
-                  @click="selectNode('OU=Sede Bogota', 'OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local', 280)"
+                  @click="selectNode('OU=Sede Bogota', 'OU=Sede Bogota,OU=REN Corporativo,DC=ren,DC=local', 280)"
                   class="p-4 rounded-2xl bg-slate-900 border border-neon-cyan/40 hover:border-neon-cyan text-white font-mono text-xs shadow-glow-cyan cursor-pointer transition-all text-center space-y-1"
                 >
                   <span class="font-bold text-neon-cyan block">📍 Sede Bogotá</span>
@@ -245,7 +245,7 @@ onMounted(() => {
               <!-- RAMA SEDE MEDELLÍN -->
               <div class="flex flex-col items-center space-y-4 max-w-xs">
                 <div 
-                  @click="selectNode('OU=Sede Medellin', 'OU=Sede Medellin,OU=RENOVA Corporativo,DC=renova,DC=local', 120)"
+                  @click="selectNode('OU=Sede Medellin', 'OU=Sede Medellin,OU=REN Corporativo,DC=ren,DC=local', 120)"
                   class="p-4 rounded-2xl bg-slate-900 border border-neon-cyan/40 hover:border-neon-cyan text-white font-mono text-xs shadow-glow-cyan cursor-pointer transition-all text-center space-y-1"
                 >
                   <span class="font-bold text-neon-cyan block">📍 Sede Medellín</span>
@@ -268,7 +268,7 @@ onMounted(() => {
               <!-- RAMA DISPOSITIVOS Y EQUIPOS -->
               <div class="flex flex-col items-center space-y-4 max-w-xs">
                 <div 
-                  @click="selectNode('OU=Dispositivos', 'OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local', 180)"
+                  @click="selectNode('OU=Dispositivos', 'OU=Dispositivos,OU=REN Corporativo,DC=ren,DC=local', 180)"
                   class="p-4 rounded-2xl bg-slate-900 border border-neon-cyan/40 hover:border-neon-cyan text-white font-mono text-xs shadow-glow-cyan cursor-pointer transition-all text-center space-y-1"
                 >
                   <span class="font-bold text-neon-cyan block">🖥️ Dispositivos Flota</span>

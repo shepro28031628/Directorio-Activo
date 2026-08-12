@@ -4,89 +4,56 @@ export default defineEventHandler(async () => {
   // Datos estructurados de la arquitectura Core de Active Directory
   return {
     domain: {
-      name: 'renova.local',
-      netbios: 'RENOVA',
+      name: 'ren.local',
+      netbios: 'REN',
       forestLevel: 'Windows Server 2022',
       domainControllers: [
-        { name: 'DC01-BOG.renova.local', ip: '192.168.10.5', role: 'PDC Emulator / GC', status: 'Online', latencyMs: 2 },
-        { name: 'DC02-BOG.renova.local', ip: '192.168.10.6', role: 'Replica / GC', status: 'Online', latencyMs: 3 }
+        { name: 'DC01-BOG.ren.local', ip: '192.168.10.5', role: 'PDC Emulator / GC', status: 'Online', latencyMs: 2 },
+        { name: 'DC02-BOG.ren.local', ip: '192.168.10.6', role: 'Replica / GC', status: 'Online', latencyMs: 3 }
       ]
     },
 
     // 1. Estructura de Unidades Organizativas (OUs)
     organizationalUnits: [
       {
-        id: 'ou-corporativo',
-        name: 'RENOVA Corporativo',
-        dn: 'OU=RENOVA Corporativo,DC=renova,DC=local',
-        type: 'Root_OU',
-        description: 'Raíz organizacional principal',
-        objectCount: 450,
+        id: 'ou-corp',
+        name: 'REN Corporativo',
+        dn: 'OU=REN Corporativo,DC=ren,DC=local',
+        type: 'DomainRoot',
+        count: 450,
         children: [
           {
             id: 'ou-bogota',
             name: 'Sede Bogotá',
-            dn: 'OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local',
+            dn: 'OU=Sede Bogota,OU=REN Corporativo,DC=ren,DC=local',
             type: 'Location',
-            objectCount: 280,
+            count: 280,
             children: [
-              {
-                id: 'ou-bog-ti',
-                name: 'Tecnología e Infraestructura',
-                dn: 'OU=TI,OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local',
-                type: 'Department',
-                users: 24,
-                computers: 32,
-                gposLinked: ['GPO-Security-Baseline', 'GPO-DriveMaps-TI', 'GPO-LAPS-Enforce']
-              },
-              {
-                id: 'ou-bog-fin',
-                name: 'Finanzas y Contabilidad',
-                dn: 'OU=Finanzas,OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local',
-                type: 'Department',
-                users: 45,
-                computers: 50,
-                gposLinked: ['GPO-Security-Baseline', 'GPO-USB-Block', 'GPO-DriveMaps-Finanzas']
-              },
-              {
-                id: 'ou-bog-rrhh',
-                name: 'Talento Humano',
-                dn: 'OU=RRHH,OU=Sede Bogota,OU=RENOVA Corporativo,DC=renova,DC=local',
-                type: 'Department',
-                users: 18,
-                computers: 20,
-                gposLinked: ['GPO-Security-Baseline', 'GPO-DriveMaps-General']
-              }
+              { id: 'ou-bog-ti', name: 'Departamento TI', dn: 'OU=TI,OU=Sede Bogota,OU=REN Corporativo,DC=ren,DC=local', type: 'Department', count: 45 },
+              { id: 'ou-bog-fin', name: 'Finanzas & Admin', dn: 'OU=Finanzas,OU=Sede Bogota,OU=REN Corporativo,DC=ren,DC=local', type: 'Department', count: 85 },
+              { id: 'ou-bog-hr', name: 'Gestión Humana', dn: 'OU=RRHH,OU=Sede Bogota,OU=REN Corporativo,DC=ren,DC=local', type: 'Department', count: 150 }
             ]
           },
           {
             id: 'ou-medellin',
             name: 'Sede Medellín',
-            dn: 'OU=Sede Medellin,OU=RENOVA Corporativo,DC=renova,DC=local',
+            dn: 'OU=Sede Medellin,OU=REN Corporativo,DC=ren,DC=local',
             type: 'Location',
-            objectCount: 120,
+            count: 120,
             children: [
-              {
-                id: 'ou-med-ops',
-                name: 'Operaciones y Logística',
-                dn: 'OU=Operaciones,OU=Sede Medellin,OU=RENOVA Corporativo,DC=renova,DC=local',
-                type: 'Department',
-                users: 65,
-                computers: 70,
-                gposLinked: ['GPO-Security-Baseline', 'GPO-DriveMaps-Ops']
-              }
+              { id: 'ou-med-ops', name: 'Operaciones Medellín', dn: 'OU=Operaciones,OU=Sede Medellin,OU=REN Corporativo,DC=ren,DC=local', type: 'Department', count: 120 }
             ]
           },
           {
             id: 'ou-devices',
-            name: 'Dispositivos y Equipos',
-            dn: 'OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local',
-            type: 'Container',
-            objectCount: 180,
+            name: 'Equipos & Servidores',
+            dn: 'OU=Dispositivos,OU=REN Corporativo,DC=ren,DC=local',
+            type: 'DevicesRoot',
+            count: 180,
             children: [
-              { id: 'ou-workstations', name: 'Workstations (Laptops & Desktops)', dn: 'OU=Workstations,OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local', type: 'DeviceGroup', count: 145 },
-              { id: 'ou-servers', name: 'Servidores de Infraestructura', dn: 'OU=Servidores,OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local', type: 'DeviceGroup', count: 25 },
-              { id: 'ou-kiosks', name: 'Kioskos & Terminales', dn: 'OU=Kioskos,OU=Dispositivos,OU=RENOVA Corporativo,DC=renova,DC=local', type: 'DeviceGroup', count: 10 }
+              { id: 'ou-workstations', name: 'Workstations (Laptops & Desktops)', dn: 'OU=Workstations,OU=Dispositivos,OU=REN Corporativo,DC=ren,DC=local', type: 'DeviceGroup', count: 145 },
+              { id: 'ou-servers', name: 'Servidores de Infraestructura', dn: 'OU=Servidores,OU=Dispositivos,OU=REN Corporativo,DC=ren,DC=local', type: 'DeviceGroup', count: 25 },
+              { id: 'ou-kiosks', name: 'Kioskos & Terminales', dn: 'OU=Kioskos,OU=Dispositivos,OU=REN Corporativo,DC=ren,DC=local', type: 'DeviceGroup', count: 10 }
             ]
           }
         ]
@@ -96,13 +63,6 @@ export default defineEventHandler(async () => {
     // 2. Políticas de Grupo (GPOs)
     gpos: [
       {
-        id: 'GPO-Security-Baseline',
-        name: 'Baseline de Seguridad Dominio 2026',
-        scope: 'Dominio / Raíz OU',
-        status: 'Enforced',
-        category: 'Seguridad Hardening',
-        settings: {
-          passwordMinLength: 14,
           lockoutThreshold: 5,
           lapsEnabled: true,
           auditPol: 'Success & Failure'
@@ -145,7 +105,7 @@ export default defineEventHandler(async () => {
         settings: {
           scriptType: 'PowerShell Startup',
           executionPolicy: 'Bypass',
-          scriptPath: '\\\\renova.local\\sysvol\\renova.local\\scripts\\CheckRenovaAgent.ps1'
+          scriptPath: '\\\\ren.local\\sysvol\\ren.local\\scripts\\CheckRenAgent.ps1'
         },
         description: 'Ejecuta scripts de validación de agente MDM y verificación de inventario en el arranque de la máquina.'
       }
@@ -158,8 +118,8 @@ export default defineEventHandler(async () => {
         primaryServer: '192.168.10.5 (DC01-BOG)',
         secondaryServer: '192.168.10.6 (DC02-BOG)',
         forwardZones: [
-          { name: 'renova.local', type: 'Active Directory Integrated', recordsCount: 420, dynamicUpdates: 'Secure Only' },
-          { name: '_msdcs.renova.local', type: 'Forest DNS Zone', recordsCount: 85, dynamicUpdates: 'Secure Only' }
+          { name: 'ren.local', type: 'Active Directory Integrated', recordsCount: 420, dynamicUpdates: 'Secure Only' },
+          { name: '_msdcs.ren.local', type: 'Forest DNS Zone', recordsCount: 85, dynamicUpdates: 'Secure Only' }
         ],
         reverseZones: [
           { name: '10.168.192.in-addr.arpa', type: 'Active Directory Integrated', recordsCount: 310 }

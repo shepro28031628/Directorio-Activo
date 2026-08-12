@@ -26,7 +26,7 @@ const openInspector = (device: any) => {
   selectedDeviceForInspector.value = device || {
     hostname: 'BOG-LAPTOP-042',
     so: 'Windows 11 Enterprise 23H2',
-    windows_user: 'RENOVA\\j.perez',
+    windows_user: 'REN\\j.perez',
     ip_registro: '192.168.10.142',
     mac_address: '00:25:96:FF:FE:12',
     serial: 'SN-9031-RN'
@@ -219,7 +219,7 @@ const copyToClipboard = (text: string, type: 'token' | 'command') => {
           <!-- Nodo Bogotá -->
           <div 
             class="absolute top-[52%] left-[49%] group cursor-pointer"
-            @click="openInspector({ hostname: 'DC01-BOG.renova.local', windows_user: 'RENOVA\\admin.bogota' })"
+            @click="openInspector({ hostname: 'DC01-BOG.ren.local', windows_user: 'REN\\admin.bogota' })"
             @mouseenter="activeHoverLocation = data.deviceMapLocations[0]"
             @mouseleave="activeHoverLocation = null"
           >
@@ -230,7 +230,7 @@ const copyToClipboard = (text: string, type: 'token' | 'command') => {
           <!-- Nodo Medellín -->
           <div 
             class="absolute top-[40%] left-[38%] group cursor-pointer"
-            @click="openInspector({ hostname: 'MED-WORKSTATION-01', windows_user: 'RENOVA\\ops.medellin' })"
+            @click="openInspector({ hostname: 'MED-WORKSTATION-01', windows_user: 'REN\\ops.medellin' })"
             @mouseenter="activeHoverLocation = data.deviceMapLocations[1]"
             @mouseleave="activeHoverLocation = null"
           >

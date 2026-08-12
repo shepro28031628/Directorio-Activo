@@ -97,7 +97,7 @@ const handleAction = (actionName: string) => {
                 </div>
                 <div class="flex justify-between text-slate-400">
                   <span>Usuario Windows:</span>
-                  <span class="text-cyan-300 font-bold">{{ device.windows_user || 'RENOVA\\admin.local' }}</span>
+                  <span class="text-cyan-300 font-bold">{{ device.windows_user || 'REN\\admin.local' }}</span>
                 </div>
                 <div class="flex justify-between text-slate-400">
                   <span>IP Registro:</span>

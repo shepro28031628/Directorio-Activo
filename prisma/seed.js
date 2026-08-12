@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-  console.log('Limpiando base de datos RENOVA...')
+  console.log('Limpiando base de datos REN...')
   await prisma.auditoria.deleteMany()
   await prisma.usuarioM365.deleteMany()
   await prisma.usuarioGoogle.deleteMany()
@@ -152,7 +152,7 @@ async function main() {
   const appJira = await prisma.aplicacion.create({ data: { nombre: 'Jira Software', descripcion: 'Gestión de proyectos y soporte IT' } })
   const appAnyDesk = await prisma.aplicacion.create({ data: { nombre: 'AnyDesk', descripcion: 'Soporte remoto y asistencia técnica' } })
   const appKawak = await prisma.aplicacion.create({ data: { nombre: 'Kawak', descripcion: 'Sistema de gestión de calidad y de procesos' } })
-  const appRenapp = await prisma.aplicacion.create({ data: { nombre: 'Usuarios de Renapp', descripcion: 'Plataforma interna de aplicaciones RENOVA' } })
+  const appRenapp = await prisma.aplicacion.create({ data: { nombre: 'Usuarios de Renapp', descripcion: 'Plataforma interna de aplicaciones REN' } })
   const appSophos = await prisma.aplicacion.create({ data: { nombre: 'Sophos Antivirus', descripcion: 'Control de seguridad endpoint de Sophos' } })
   const appVPN = await prisma.aplicacion.create({ data: { nombre: 'VPN', descripcion: 'Acceso seguro a la red interna y VPN corporativa' } })
   const appWAVE = await prisma.aplicacion.create({ data: { nombre: 'WAVE', descripcion: 'Plataforma corporativa WAVE de comunicación' } })
@@ -204,7 +204,7 @@ async function main() {
     ]
   })
 
-  console.log('Semilla RENOVA completada exitosamente.')
+  console.log('Semilla REN completada exitosamente.')
 }
 
 main()

@@ -68,7 +68,7 @@ public class WinAPI {
                        FontFamily="Segoe UI"/>
 
             <!-- Subtitulo empresa -->
-            <TextBlock Text="RENOVA Consultores · Departamento de Tecnologia" FontSize="16"
+            <TextBlock Text="REN Consultores · Departamento de Tecnologia" FontSize="16"
                        TextAlignment="Center" Margin="0,0,0,24" FontFamily="Segoe UI">
                 <TextBlock.Foreground>
                     <LinearGradientBrush>
