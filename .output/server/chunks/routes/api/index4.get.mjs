@@ -13,39 +13,78 @@ import 'node:url';
 import '@prisma/client';
 
 const index_get = defineEventHandler(async (event) => {
-  const query = getQuery(event);
-  const search = query.search ? String(query.search) : "";
-  const status = query.status ? String(query.status) : void 0;
   try {
-    const devices = await prisma.device.findMany({
+    const query = getQuery(event);
+    let estado = query.estado ? String(query.estado).trim() : void 0;
+    if (estado === "[object Object]") estado = void 0;
+    let area = query.area ? String(query.area).trim() : void 0;
+    if (area === "[object Object]") area = void 0;
+    let search = query.search ? String(query.search).trim() : "";
+    if (search === "[object Object]") search = "";
+    const page = parseInt(query.page) || 1;
+    const limit = parseInt(query.limit) || 50;
+    const skip = (page - 1) * limit;
+    const sortBy = query.sortBy ? String(query.sortBy) : "nombre";
+    const sortDesc = query.sortDesc === "true";
+    const colaboradores = await prisma.colaborador.findMany({
       where: {
         AND: [
-          status ? { status } : {},
+          { eliminado_en: null },
+          estado ? { estado } : {},
+          area ? { area } : {},
           search ? {
             OR: [
-              { name: { contains: search, mode: "insensitive" } },
-              { assignedUser: { contains: search, mode: "insensitive" } },
-              { ipAddress: { contains: search, mode: "insensitive" } }
+              { nombre: { contains: search, mode: "insensitive" } },
+              { correo: { contains: search, mode: "insensitive" } },
+              { proyecto: { contains: search, mode: "insensitive" } }
             ]
           } : {}
         ]
       },
       include: {
-        hardware: {
-          select: {
-            cpuModel: true,
-            ramGb: true,
-            diskHealth: true
+        equipos: true,
+        accesos: {
+          include: {
+            aplicacion: true
           }
         }
       },
-      orderBy: { name: "asc" }
+      orderBy: { [sortBy]: sortDesc ? "desc" : "asc" },
+      skip,
+      take: limit
     });
-    return devices;
+    const total = await prisma.colaborador.count({
+      where: {
+        AND: [
+          { eliminado_en: null },
+          estado ? { estado } : {},
+          area ? { area } : {},
+          search ? {
+            OR: [
+              { nombre: { contains: search, mode: "insensitive" } },
+              { correo: { contains: search, mode: "insensitive" } },
+              { proyecto: { contains: search, mode: "insensitive" } }
+            ]
+          } : {}
+        ]
+      }
+    });
+    if (query.paginate === "true") {
+      return {
+        data: colaboradores,
+        meta: {
+          total,
+          page,
+          limit,
+          totalPages: Math.ceil(total / limit)
+        }
+      };
+    }
+    return colaboradores;
   } catch (error) {
     throw createError({
       statusCode: 500,
-      statusMessage: `Error al listar dispositivos: ${error.message}`
+      statusMessage: `Error al listar colaboradores: ${error.message}`
     });
   }
 });

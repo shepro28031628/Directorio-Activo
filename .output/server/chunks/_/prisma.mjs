@@ -1,5 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import PrismaClientPkg from '@prisma/client';
 
+const PrismaClient = PrismaClientPkg.PrismaClient || PrismaClientPkg;
 let prisma;
 {
   prisma = new PrismaClient();

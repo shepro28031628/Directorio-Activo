@@ -15,7 +15,8 @@ import '@prisma/client';
 const users_get = defineEventHandler(async (event) => {
   try {
     const query = getQuery(event);
-    const search = query.search ? String(query.search).trim() : "";
+    let search = query.search ? String(query.search).trim() : "";
+    if (search === "[object Object]") search = "";
     const page = parseInt(query.page) || 1;
     const limit = parseInt(query.limit) || 20;
     const skip = (page - 1) * limit;

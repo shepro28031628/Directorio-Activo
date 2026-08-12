@@ -124,6 +124,9 @@ declare module "nitropack/types" {
     '/api/politicas/aplicar': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/politicas/aplicar.post').default>>>>
     }
+    '/api/version': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/version.get').default>>>>
+    }
     '/agent/install.ps1': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/routes/agent/install.ps1').default>>>>
     }

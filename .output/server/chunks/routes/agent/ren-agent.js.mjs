@@ -1,4 +1,4 @@
-import { c as defineEventHandler, j as setResponseHeader, e as createError } from '../../_/nitro.mjs';
+import { c as defineEventHandler, k as setResponseHeader, e as createError } from '../../_/nitro.mjs';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 import 'node:http';

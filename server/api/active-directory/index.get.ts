@@ -63,6 +63,12 @@ export default defineEventHandler(async () => {
     // 2. Políticas de Grupo (GPOs)
     gpos: [
       {
+        id: 'GPO-Sec-Hardening',
+        name: 'Hardening & Seguridad de Dominio Base',
+        scope: 'Domain-Wide',
+        status: 'Active',
+        category: 'Seguridad',
+        settings: {
           lockoutThreshold: 5,
           lapsEnabled: true,
           auditPol: 'Success & Failure'

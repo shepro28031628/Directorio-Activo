@@ -1,10 +1,10 @@
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { k as joinRelativeURL, u as useRuntimeConfig, l as encodePath, m as defineRenderHandler, g as getQuery, e as createError, n as getRouteRules, o as getResponseStatusText, p as getResponseStatus, b as useNitroApp } from '../_/nitro.mjs';
+import { l as joinRelativeURL, u as useRuntimeConfig, m as encodePath, n as defineRenderHandler, g as getQuery, e as createError, o as getRouteRules, p as getResponseStatusText, q as getResponseStatus, b as useNitroApp } from '../_/nitro.mjs';
 import { renderToString } from 'vue/server-renderer';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
 import { walkResolver } from 'unhead/utils';
-import { isRef, toValue, hasInjectionContext, inject, ref, watchEffect, getCurrentInstance, onBeforeUnmount, onDeactivated, onActivated } from 'vue';
+import { isRef, toValue, hasInjectionContext, inject, getCurrentScope, ref, watchEffect, getCurrentInstance, onBeforeUnmount, onDeactivated, onActivated } from 'vue';
 import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'unhead/plugins';
 
 const VueResolver = (_, value) => {
@@ -39,6 +39,12 @@ function useHead(input, options = {}) {
   return head.ssr ? head.push(input || {}, options) : clientUseHead(head, input, options);
 }
 function clientUseHead(head, input, options = {}) {
+  const scope = getCurrentScope();
+  if (scope && !scope.active)
+    return { patch() {
+    }, dispose() {
+    }, _poll() {
+    } };
   const deactivated = ref(false);
   let entry;
   watchEffect(() => {
@@ -76,7 +82,7 @@ function createHead(options = {}) {
 
 const NUXT_RUNTIME_PAYLOAD_EXTRACTION = false;
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"},{"http-equiv":"Cache-Control","content":"no-cache, no-store, must-revalidate"},{"http-equiv":"Pragma","content":"no-cache"},{"http-equiv":"Expires","content":"0"},{"name":"apple-mobile-web-app-capable","content":"yes"},{"name":"apple-mobile-web-app-status-bar-style","content":"black-translucent"},{"name":"apple-mobile-web-app-title","content":"Directorio Activo"},{"name":"mobile-web-app-capable","content":"yes"},{"name":"theme-color","content":"#7c3aed"}],"link":[{"rel":"manifest","href":"/manifest.json"},{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"apple-touch-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"title":"Directorio Activo REN"};
 
 const appRootTag = "div";
 
@@ -362,14 +368,9 @@ async function renderRoute(event, ssrError) {
 		
 		
 		
-		if (ssrContext["~lazyHydratedModules"]) {
-			for (const id of ssrContext["~lazyHydratedModules"]) {
-				ssrContext.modules?.delete(id);
-			}
-		}
-		
-		ssrContext.head.push({ link: getPreloadLinks(ssrContext, renderer.rendererContext) }, headEntryOptions);
-		ssrContext.head.push({ link: getPrefetchLinks(ssrContext, renderer.rendererContext) }, headEntryOptions);
+		const dependencyOptions = ssrContext["~lazyHydratedModules"]?.size ? { exclude: ssrContext["~lazyHydratedModules"] } : undefined;
+		const stylesheetHrefs = new Set(link.map((l) => l.href));
+		ssrContext.head.push({ link: [...getPreloadLinks(ssrContext, renderer.rendererContext, dependencyOptions), ...getPrefetchLinks(ssrContext, renderer.rendererContext, dependencyOptions)].filter((l) => !stylesheetHrefs.has(l.href)) }, headEntryOptions);
 		
 		ssrContext.head.push({ script: renderPayloadJsonScript({
 			ssrContext,

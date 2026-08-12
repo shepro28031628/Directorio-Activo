@@ -3,7 +3,8 @@ import { prisma } from '../../utils/prisma'
 export default defineEventHandler(async (event) => {
   try {
     const query = getQuery(event)
-    const search = query.search ? String(query.search).trim() : ''
+    let search = query.search ? String(query.search).trim() : ''
+    if (search === '[object Object]') search = ''
     const page = parseInt(query.page as string) || 1
     const limit = parseInt(query.limit as string) || 20
     const skip = (page - 1) * limit

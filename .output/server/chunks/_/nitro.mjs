@@ -674,7 +674,7 @@ const defuFn = createDefu((object, key, currentValue) => {
   }
 });
 
-function o(n){throw new Error(`${n} is not implemented yet!`)}let i$1 = class i extends EventEmitter{__unenv__={};readableEncoding=null;readableEnded=true;readableFlowing=false;readableHighWaterMark=0;readableLength=0;readableObjectMode=false;readableAborted=false;readableDidRead=false;closed=false;errored=null;readable=false;destroyed=false;static from(e,t){return new i(t)}constructor(e){super();}_read(e){}read(e){}setEncoding(e){return this}pause(){return this}resume(){return this}isPaused(){return  true}unpipe(e){return this}unshift(e,t){}wrap(e){return this}push(e,t){return  false}_destroy(e,t){this.removeAllListeners();}destroy(e){return this.destroyed=true,this._destroy(e),this}pipe(e,t){return {}}compose(e,t){throw new Error("Method not implemented.")}[Symbol.asyncDispose](){return this.destroy(),Promise.resolve()}async*[Symbol.asyncIterator](){throw o("Readable.asyncIterator")}iterator(e){throw o("Readable.iterator")}map(e,t){throw o("Readable.map")}filter(e,t){throw o("Readable.filter")}forEach(e,t){throw o("Readable.forEach")}reduce(e,t,r){throw o("Readable.reduce")}find(e,t){throw o("Readable.find")}findIndex(e,t){throw o("Readable.findIndex")}some(e,t){throw o("Readable.some")}toArray(e){throw o("Readable.toArray")}every(e,t){throw o("Readable.every")}flatMap(e,t){throw o("Readable.flatMap")}drop(e,t){throw o("Readable.drop")}take(e,t){throw o("Readable.take")}asIndexedPairs(e){throw o("Readable.asIndexedPairs")}};let l$1 = class l extends EventEmitter{__unenv__={};writable=true;writableEnded=false;writableFinished=false;writableHighWaterMark=0;writableLength=0;writableObjectMode=false;writableCorked=0;closed=false;errored=null;writableNeedDrain=false;writableAborted=false;destroyed=false;_data;_encoding="utf8";constructor(e){super();}pipe(e,t){return {}}_write(e,t,r){if(this.writableEnded){r&&r();return}if(this._data===void 0)this._data=e;else {const s=typeof this._data=="string"?Buffer$1.from(this._data,this._encoding||t||"utf8"):this._data,a=typeof e=="string"?Buffer$1.from(e,t||this._encoding||"utf8"):e;this._data=Buffer$1.concat([s,a]);}this._encoding=t,r&&r();}_writev(e,t){}_destroy(e,t){}_final(e){}write(e,t,r){const s=typeof t=="string"?this._encoding:"utf8",a=typeof t=="function"?t:typeof r=="function"?r:void 0;return this._write(e,s,a),true}setDefaultEncoding(e){return this}end(e,t,r){const s=typeof e=="function"?e:typeof t=="function"?t:typeof r=="function"?r:void 0;if(this.writableEnded)return s&&s(),this;const a=e===s?void 0:e;if(a){const u=t===s?void 0:t;this.write(a,u,s);}return this.writableEnded=true,this.writableFinished=true,this.emit("close"),this.emit("finish"),this}cork(){}uncork(){}destroy(e){return this.destroyed=true,delete this._data,this.removeAllListeners(),this}compose(e,t){throw new Error("Method not implemented.")}[Symbol.asyncDispose](){return Promise.resolve()}};const c$1=class c{allowHalfOpen=true;_destroy;constructor(e=new i$1,t=new l$1){Object.assign(this,e),Object.assign(this,t),this._destroy=m(e._destroy,t._destroy);}};function _(){return Object.assign(c$1.prototype,i$1.prototype),Object.assign(c$1.prototype,l$1.prototype),c$1}function m(...n){return function(...e){for(const t of n)t(...e);}}const g=_();class A extends g{__unenv__={};bufferSize=0;bytesRead=0;bytesWritten=0;connecting=false;destroyed=false;pending=false;localAddress="";localPort=0;remoteAddress="";remoteFamily="";remotePort=0;autoSelectFamilyAttemptedAddresses=[];readyState="readOnly";constructor(e){super();}write(e,t,r){return  false}connect(e,t,r){return this}end(e,t,r){return this}setEncoding(e){return this}pause(){return this}resume(){return this}setTimeout(e,t){return this}setNoDelay(e){return this}setKeepAlive(e,t){return this}address(){return {}}unref(){return this}ref(){return this}destroySoon(){this.destroy();}resetAndDestroy(){const e=new Error("ERR_SOCKET_CLOSED");return e.code="ERR_SOCKET_CLOSED",this.destroy(e),this}}class y extends i$1{aborted=false;httpVersion="1.1";httpVersionMajor=1;httpVersionMinor=1;complete=true;connection;socket;headers={};trailers={};method="GET";url="/";statusCode=200;statusMessage="";closed=false;errored=null;readable=false;constructor(e){super(),this.socket=this.connection=e||new A;}get rawHeaders(){const e=this.headers,t=[];for(const r in e)if(Array.isArray(e[r]))for(const s of e[r])t.push(r,s);else t.push(r,e[r]);return t}get rawTrailers(){return []}setTimeout(e,t){return this}get headersDistinct(){return p(this.headers)}get trailersDistinct(){return p(this.trailers)}}function p(n){const e={};for(const[t,r]of Object.entries(n))t&&(e[t]=(Array.isArray(r)?r:[r]).filter(Boolean));return e}class w extends l$1{statusCode=200;statusMessage="";upgrading=false;chunkedEncoding=false;shouldKeepAlive=false;useChunkedEncodingByDefault=false;sendDate=false;finished=false;headersSent=false;strictContentLength=false;connection=null;socket=null;req;_headers={};constructor(e){super(),this.req=e;}assignSocket(e){e._httpMessage=this,this.socket=e,this.connection=e,this.emit("socket",e),this._flush();}_flush(){this.flushHeaders();}detachSocket(e){}writeContinue(e){}writeHead(e,t,r){e&&(this.statusCode=e),typeof t=="string"&&(this.statusMessage=t,t=void 0);const s=r||t;if(s&&!Array.isArray(s))for(const a in s)this.setHeader(a,s[a]);return this.headersSent=true,this}writeProcessing(){}setTimeout(e,t){return this}appendHeader(e,t){e=e.toLowerCase();const r=this._headers[e],s=[...Array.isArray(r)?r:[r],...Array.isArray(t)?t:[t]].filter(Boolean);return this._headers[e]=s.length>1?s:s[0],this}setHeader(e,t){return this._headers[e.toLowerCase()]=t,this}setHeaders(e){for(const[t,r]of Object.entries(e))this.setHeader(t,r);return this}getHeader(e){return this._headers[e.toLowerCase()]}getHeaders(){return this._headers}getHeaderNames(){return Object.keys(this._headers)}hasHeader(e){return e.toLowerCase()in this._headers}removeHeader(e){delete this._headers[e.toLowerCase()];}addTrailers(e){}flushHeaders(){}writeEarlyHints(e,t){typeof t=="function"&&t();}}const E=(()=>{const n=function(){};return n.prototype=Object.create(null),n})();function R(n={}){const e=new E,t=Array.isArray(n)||H(n)?n:Object.entries(n);for(const[r,s]of t)if(s){if(e[r]===void 0){e[r]=s;continue}e[r]=[...Array.isArray(e[r])?e[r]:[e[r]],...Array.isArray(s)?s:[s]];}return e}function H(n){return typeof n?.entries=="function"}function v(n={}){if(n instanceof Headers)return n;const e=new Headers;for(const[t,r]of Object.entries(n))if(r!==void 0){if(Array.isArray(r)){for(const s of r)e.append(t,String(s));continue}e.set(t,String(r));}return e}const S=new Set([101,204,205,304]);async function b(n,e){const t=new y,r=new w(t);t.url=e.url?.toString()||"/";let s;if(!t.url.startsWith("/")){const d=new URL(t.url);s=d.host,t.url=d.pathname+d.search+d.hash;}t.method=e.method||"GET",t.headers=R(e.headers||{}),t.headers.host||(t.headers.host=e.host||s||"localhost"),t.connection.encrypted=t.connection.encrypted||e.protocol==="https",t.body=e.body||null,t.__unenv__=e.context,await n(t,r);let a=r._data;(S.has(r.statusCode)||t.method.toUpperCase()==="HEAD")&&(a=null,delete r._headers["content-length"]);const u={status:r.statusCode,statusText:r.statusMessage,headers:r._headers,body:a};return t.destroy(),r.destroy(),u}async function C(n,e,t={}){try{const r=await b(n,{url:e,...t});return new Response(r.body,{status:r.status,statusText:r.statusText,headers:v(r.headers)})}catch(r){return new Response(r.toString(),{status:Number.parseInt(r.statusCode||r.code)||500,statusText:r.statusText})}}
+function o(n){throw new Error(`${n} is not implemented yet!`)}let i$1 = class i extends EventEmitter{__unenv__={};readableEncoding=null;readableEnded=true;readableFlowing=false;readableHighWaterMark=0;readableLength=0;readableObjectMode=false;readableAborted=false;readableDidRead=false;closed=false;errored=null;readable=false;destroyed=false;static from(e,t){return new i(t)}constructor(e){super();}_read(e){}read(e){}setEncoding(e){return this}pause(){return this}resume(){return this}isPaused(){return  true}unpipe(e){return this}unshift(e,t){}wrap(e){return this}push(e,t){return  false}_destroy(e,t){this.removeAllListeners();}destroy(e){return this.destroyed=true,this._destroy(e),this}pipe(e,t){return {}}compose(e,t){throw new Error("Method not implemented.")}[Symbol.asyncDispose](){return this.destroy(),Promise.resolve()}async*[Symbol.asyncIterator](){throw o("Readable.asyncIterator")}iterator(e){throw o("Readable.iterator")}map(e,t){throw o("Readable.map")}filter(e,t){throw o("Readable.filter")}forEach(e,t){throw o("Readable.forEach")}reduce(e,t,r){throw o("Readable.reduce")}find(e,t){throw o("Readable.find")}findIndex(e,t){throw o("Readable.findIndex")}some(e,t){throw o("Readable.some")}toArray(e){throw o("Readable.toArray")}every(e,t){throw o("Readable.every")}flatMap(e,t){throw o("Readable.flatMap")}drop(e,t){throw o("Readable.drop")}take(e,t){throw o("Readable.take")}asIndexedPairs(e){throw o("Readable.asIndexedPairs")}};let l$1 = class l extends EventEmitter{__unenv__={};writable=true;writableEnded=false;writableFinished=false;writableHighWaterMark=0;writableLength=0;writableObjectMode=false;writableCorked=0;closed=false;errored=null;writableNeedDrain=false;writableAborted=false;destroyed=false;_data;_encoding="utf8";constructor(e){super();}pipe(e,t){return {}}_write(e,t,r){if(this.writableEnded){r&&r();return}if(this._data===void 0)this._data=e;else {const s=typeof this._data=="string"?Buffer$1.from(this._data,this._encoding||t||"utf8"):this._data,a=typeof e=="string"?Buffer$1.from(e,t||this._encoding||"utf8"):e;this._data=Buffer$1.concat([s,a]);}this._encoding=t,r&&r();}_writev(e,t){}_destroy(e,t){}_final(e){}write(e,t,r){const s=typeof t=="string"?this._encoding:"utf8",a=typeof t=="function"?t:typeof r=="function"?r:void 0;return this._write(e,s,a),true}setDefaultEncoding(e){return this}end(e,t,r){const s=typeof e=="function"?e:typeof t=="function"?t:typeof r=="function"?r:void 0;if(this.writableEnded)return s&&s(),this;const a=e===s?void 0:e;if(a){const u=t===s?void 0:t;this.write(a,u);}return this.writableEnded=true,this.writableFinished=true,this.emit("close"),this.emit("finish"),s&&s(),this}cork(){}uncork(){}destroy(e){return this.destroyed=true,delete this._data,this.removeAllListeners(),this}compose(e,t){throw new Error("Method not implemented.")}[Symbol.asyncDispose](){return Promise.resolve()}};const c$1=class c{allowHalfOpen=true;_destroy;constructor(e=new i$1,t=new l$1){Object.assign(this,e),Object.assign(this,t),this._destroy=m(e._destroy,t._destroy);}};function _(){return Object.assign(c$1.prototype,i$1.prototype),Object.assign(c$1.prototype,l$1.prototype),c$1}function m(...n){return function(...e){for(const t of n)t(...e);}}const g=_();class A extends g{__unenv__={};bufferSize=0;bytesRead=0;bytesWritten=0;connecting=false;destroyed=false;pending=false;localAddress="";localPort=0;remoteAddress="";remoteFamily="";remotePort=0;autoSelectFamilyAttemptedAddresses=[];readyState="readOnly";constructor(e){super();}write(e,t,r){return  false}connect(e,t,r){return this}end(e,t,r){return this}setEncoding(e){return this}pause(){return this}resume(){return this}setTimeout(e,t){return this}setNoDelay(e){return this}setKeepAlive(e,t){return this}address(){return {}}unref(){return this}ref(){return this}destroySoon(){this.destroy();}resetAndDestroy(){const e=new Error("ERR_SOCKET_CLOSED");return e.code="ERR_SOCKET_CLOSED",this.destroy(e),this}}class y extends i$1{aborted=false;httpVersion="1.1";httpVersionMajor=1;httpVersionMinor=1;complete=true;connection;socket;headers={};trailers={};method="GET";url="/";statusCode=200;statusMessage="";closed=false;errored=null;readable=false;constructor(e){super(),this.socket=this.connection=e||new A;}get rawHeaders(){const e=this.headers,t=[];for(const r in e)if(Array.isArray(e[r]))for(const s of e[r])t.push(r,s);else t.push(r,e[r]);return t}get rawTrailers(){return []}setTimeout(e,t){return this}get headersDistinct(){return p(this.headers)}get trailersDistinct(){return p(this.trailers)}}function p(n){const e={};for(const[t,r]of Object.entries(n))t&&(e[t]=(Array.isArray(r)?r:[r]).filter(Boolean));return e}class w extends l$1{statusCode=200;statusMessage="";upgrading=false;chunkedEncoding=false;shouldKeepAlive=false;useChunkedEncodingByDefault=false;sendDate=false;finished=false;headersSent=false;strictContentLength=false;connection=null;socket=null;req;_headers={};constructor(e){super(),this.req=e;}assignSocket(e){e._httpMessage=this,this.socket=e,this.connection=e,this.emit("socket",e),this._flush();}_flush(){this.flushHeaders();}detachSocket(e){}writeContinue(e){}writeHead(e,t,r){e&&(this.statusCode=e),typeof t=="string"&&(this.statusMessage=t,t=void 0);const s=r||t;if(s&&!Array.isArray(s))for(const a in s)this.setHeader(a,s[a]);return this.headersSent=true,this}writeProcessing(){}setTimeout(e,t){return this}appendHeader(e,t){e=e.toLowerCase();const r=this._headers[e],s=[...Array.isArray(r)?r:[r],...Array.isArray(t)?t:[t]].filter(Boolean);return this._headers[e]=s.length>1?s:s[0],this}setHeader(e,t){return this._headers[e.toLowerCase()]=t,this}setHeaders(e){for(const[t,r]of Object.entries(e))this.setHeader(t,r);return this}getHeader(e){return this._headers[e.toLowerCase()]}getHeaders(){return this._headers}getHeaderNames(){return Object.keys(this._headers)}hasHeader(e){return e.toLowerCase()in this._headers}removeHeader(e){delete this._headers[e.toLowerCase()];}addTrailers(e){}flushHeaders(){}writeEarlyHints(e,t){typeof t=="function"&&t();}}const E=(()=>{const n=function(){};return n.prototype=Object.create(null),n})();function R(n={}){const e=new E,t=Array.isArray(n)||H(n)?n:Object.entries(n);for(const[r,s]of t)if(s){if(e[r]===void 0){e[r]=s;continue}e[r]=[...Array.isArray(e[r])?e[r]:[e[r]],...Array.isArray(s)?s:[s]];}return e}function H(n){return typeof n?.entries=="function"}function v(n={}){if(n instanceof Headers)return n;const e=new Headers;for(const[t,r]of Object.entries(n))if(r!==void 0){if(Array.isArray(r)){for(const s of r)e.append(t,String(s));continue}e.set(t,String(r));}return e}const S=new Set([101,204,205,304]);async function b(n,e){const t=new y,r=new w(t);t.url=e.url?.toString()||"/";let s;if(!t.url.startsWith("/")){const d=new URL(t.url);s=d.host,t.url=d.pathname+d.search+d.hash;}t.method=e.method||"GET",t.headers=R(e.headers||{}),t.headers.host||(t.headers.host=e.host||s||"localhost"),t.connection.encrypted=t.connection.encrypted||e.protocol==="https",t.body=e.body||null,t.__unenv__=e.context,await n(t,r);let a=r._data;(S.has(r.statusCode)||t.method.toUpperCase()==="HEAD")&&(a=null,delete r._headers["content-length"]);const u={status:r.statusCode,statusText:r.statusMessage,headers:r._headers,body:a};return t.destroy(),r.destroy(),u}async function C(n,e,t={}){try{const r=await b(n,{url:e,...t});return new Response(r.body,{status:r.status,statusText:r.statusText,headers:v(r.headers)})}catch(r){return new Response(r.toString(),{status:Number.parseInt(r.statusCode||r.code)||500,statusText:r.statusText})}}
 
 function hasProp(obj, prop) {
   try {
@@ -1205,6 +1205,7 @@ const setHeaders = setResponseHeaders;
 function setResponseHeader(event, name, value) {
   event.node.res.setHeader(name, value);
 }
+const setHeader = setResponseHeader;
 function appendResponseHeader(event, name, value) {
   let current = event.node.res.getHeader(name);
   if (!current) {
@@ -4094,7 +4095,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "9224051c-bec3-4eab-ab08-8f10be17de8e",
+    "buildId": "81919dbc-7dc6-4b64-a30c-2a5939cf730e",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4114,7 +4115,7 @@ const _inlineRuntimeConfig = {
   "public": {
     "wsEndpoint": "ws://localhost:3001"
   },
-  "databaseUrl": "postgresql://postgres:123456@localhost:5432/asset_control?schema=public"
+  "databaseUrl": "postgresql://postgres:postgres@localhost:5432/asset_control?schema=public"
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -4558,7 +4559,7 @@ async function errorHandler(error, event) {
   // H3 will handle fallback
 }
 
-const _GIotszPXhSXmI8eHzTVHiyqLEgsyOYviUaaKgSL2IdU = defineNitroPlugin((nitroApp) => {
+const _5IvypT0xwB8OTC7puDMUhuPEPU6sbYQGmtyiRH5sDA = defineNitroPlugin((nitroApp) => {
   nitroApp.router.use("/socket.io", () => {
   });
   nitroApp.hooks.hook("request", (event) => {
@@ -4579,7 +4580,7 @@ const _GIotszPXhSXmI8eHzTVHiyqLEgsyOYviUaaKgSL2IdU = defineNitroPlugin((nitroApp
             socket.join(token);
             console.log(`[SOCKET] Agente registrado en sala: ${token}`);
             socket.emit("confirmacion", {
-              mensaje: "Agente registrado correctamente en el canal seguro RENOVA.",
+              mensaje: "Agente registrado correctamente en el canal seguro Directorio Activo Ren.",
               sala: token
             });
           }
@@ -4593,17 +4594,10 @@ const _GIotszPXhSXmI8eHzTVHiyqLEgsyOYviUaaKgSL2IdU = defineNitroPlugin((nitroApp
 });
 
 const plugins = [
-  _GIotszPXhSXmI8eHzTVHiyqLEgsyOYviUaaKgSL2IdU
+  _5IvypT0xwB8OTC7puDMUhuPEPU6sbYQGmtyiRH5sDA
 ];
 
 const assets = {
-  "/robots.txt": {
-    "type": "text/plain; charset=utf-8",
-    "etag": "\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\"",
-    "mtime": "2026-06-30T19:54:17.612Z",
-    "size": 0,
-    "path": "../public/robots.txt"
-  },
   "/favicon.ico": {
     "type": "image/vnd.microsoft.icon",
     "etag": "\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\"",
@@ -4611,187 +4605,229 @@ const assets = {
     "size": 0,
     "path": "../public/favicon.ico"
   },
-  "/_nuxt/7BFKpdjI.js": {
+  "/_nuxt/1YokURQ0.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"2654-UmhafEIFnXU/BPkI5QWYHpXAfn0\"",
-    "mtime": "2026-07-09T16:01:36.223Z",
-    "size": 9812,
-    "path": "../public/_nuxt/7BFKpdjI.js"
+    "etag": "\"901-c4KtwblD7SoHRxnzMgb2bT8sVLY\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 2305,
+    "path": "../public/_nuxt/1YokURQ0.js"
   },
-  "/_nuxt/B7m9k3Li.js": {
+  "/sw.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"d40-uDKasr71gEMvHfLTiTdCv+YgYag\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 3392,
-    "path": "../public/_nuxt/B7m9k3Li.js"
+    "etag": "\"5a9-3uWke/yB/zY1s9gGhNyINUYGUNA\"",
+    "mtime": "2026-08-12T12:44:52.037Z",
+    "size": 1449,
+    "path": "../public/sw.js"
   },
-  "/_nuxt/BI28hM-O.js": {
+  "/robots.txt": {
+    "type": "text/plain; charset=utf-8",
+    "etag": "\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\"",
+    "mtime": "2026-06-30T19:54:17.612Z",
+    "size": 0,
+    "path": "../public/robots.txt"
+  },
+  "/_nuxt/B28e29Oe.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"709f-AfVRhEIH16DErJsm5p/U5cp61j4\"",
-    "mtime": "2026-07-09T16:01:36.223Z",
-    "size": 28831,
-    "path": "../public/_nuxt/BI28hM-O.js"
+    "etag": "\"20b4-cLL2ZU4mf5nU96J9ssJKfCNtKUc\"",
+    "mtime": "2026-08-12T12:47:51.767Z",
+    "size": 8372,
+    "path": "../public/_nuxt/B28e29Oe.js"
   },
-  "/_nuxt/B6z6e5qZ.js": {
+  "/_nuxt/BbOpGc1d.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"3c34-w/O6f24VtoWs/a7iyBG09y+t1R8\"",
-    "mtime": "2026-07-09T16:01:36.223Z",
-    "size": 15412,
-    "path": "../public/_nuxt/B6z6e5qZ.js"
+    "etag": "\"1645-2M5IXIu1c8yL4oTbahMYCkbkOrg\"",
+    "mtime": "2026-08-12T12:47:51.767Z",
+    "size": 5701,
+    "path": "../public/_nuxt/BbOpGc1d.js"
   },
-  "/_nuxt/BIko5JiA.js": {
+  "/_nuxt/B40zYutX.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"4d6a-ZobWq8qcPk2Bdmqi7ZJ5ndolgbo\"",
-    "mtime": "2026-07-09T16:01:36.223Z",
-    "size": 19818,
-    "path": "../public/_nuxt/BIko5JiA.js"
+    "etag": "\"41a2-cPoIQ+1EUeBOmbiZM4evDwZGx2A\"",
+    "mtime": "2026-08-12T12:47:51.765Z",
+    "size": 16802,
+    "path": "../public/_nuxt/B40zYutX.js"
   },
-  "/_nuxt/BaDK1TTp.js": {
+  "/_nuxt/BGgXnJtc.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"326c-FcegJ4vdDQCXDEaswsxrU+QrJZM\"",
-    "mtime": "2026-07-09T16:01:36.223Z",
-    "size": 12908,
-    "path": "../public/_nuxt/BaDK1TTp.js"
-  },
-  "/_nuxt/BKZoVpVh.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"2225-+cIoRGQqqzMcRitg/IBCnTlcbds\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 8741,
-    "path": "../public/_nuxt/BKZoVpVh.js"
-  },
-  "/_nuxt/Bna4gEb7.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"2c7d2-mnBmwEhdTuRM+Z4jVcTJcVvuBPI\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 182226,
-    "path": "../public/_nuxt/Bna4gEb7.js"
-  },
-  "/_nuxt/CgAZ8LBI.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"38d0-mcKnrH3qgfYQe/xZDtT6G3vKiKY\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 14544,
-    "path": "../public/_nuxt/CgAZ8LBI.js"
-  },
-  "/_nuxt/C701lQqi.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"1626-RbSbaPvEZy+6yAHhYlCnanfwZic\"",
-    "mtime": "2026-07-09T16:01:36.224Z",
-    "size": 5670,
-    "path": "../public/_nuxt/C701lQqi.js"
-  },
-  "/_nuxt/CJIzj8wO.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"23b9-qJRagLHZ9iRFR4L1kGn/IXvENl8\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 9145,
-    "path": "../public/_nuxt/CJIzj8wO.js"
-  },
-  "/_nuxt/error-500.I1Dtv2V5.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"75a-vEGyJqldBVJrnMfcLsrGaHcxYl0\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 1882,
-    "path": "../public/_nuxt/error-500.I1Dtv2V5.css"
-  },
-  "/_nuxt/default.B6mvenbh.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"1bf-L+h+9dlY7PBjn0eODkqz3txsY3s\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 447,
-    "path": "../public/_nuxt/default.B6mvenbh.css"
-  },
-  "/_nuxt/D5uIcdO1.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"28d9-mbck2dRpUGIMKcxzxnULa1HOZj0\"",
-    "mtime": "2026-07-09T16:01:36.223Z",
-    "size": 10457,
-    "path": "../public/_nuxt/D5uIcdO1.js"
-  },
-  "/_nuxt/CUwoKPPQ.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"f7-na4z7M5UMRzcQIpd6TEGOsDrx2Y\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
+    "etag": "\"f7-i8/6gPdp42Y1bdiecypMW9e67GA\"",
+    "mtime": "2026-08-12T12:47:51.765Z",
     "size": 247,
-    "path": "../public/_nuxt/CUwoKPPQ.js"
+    "path": "../public/_nuxt/BGgXnJtc.js"
   },
-  "/_nuxt/igX2hNwi.js": {
+  "/_nuxt/BBR-LvyD.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"8e6-3YJY8hTKN5ERgwcvoo66NCEeISw\"",
-    "mtime": "2026-07-09T16:01:36.223Z",
-    "size": 2278,
-    "path": "../public/_nuxt/igX2hNwi.js"
+    "etag": "\"454e-1Hfy03YXP2W6jQVOIoyx+R2o+uk\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 17742,
+    "path": "../public/_nuxt/BBR-LvyD.js"
+  },
+  "/_nuxt/BJKPaex9.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"38eb-ByTRlT7fCcpwZWp4rRVFNgdgB5A\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 14571,
+    "path": "../public/_nuxt/BJKPaex9.js"
+  },
+  "/manifest.json": {
+    "type": "application/json",
+    "etag": "\"1b5-i8//nsbKKjAhDfxVpi0l2PY728Y\"",
+    "mtime": "2026-08-12T12:44:56.937Z",
+    "size": 437,
+    "path": "../public/manifest.json"
+  },
+  "/_nuxt/C4amcQZI.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"eb2-kujTjArOunebiOhLPbEuvKcQIQ8\"",
+    "mtime": "2026-08-12T12:47:51.765Z",
+    "size": 3762,
+    "path": "../public/_nuxt/C4amcQZI.js"
+  },
+  "/_nuxt/BV8RoNO5.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"329c-gw7GMyZEkKU0zED5Orn9gR6QsAk\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 12956,
+    "path": "../public/_nuxt/BV8RoNO5.js"
+  },
+  "/_nuxt/CKO-UCZs.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"711d-OKMngqhxx2lx/klVxCi9g2yBMu0\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 28957,
+    "path": "../public/_nuxt/CKO-UCZs.js"
+  },
+  "/_nuxt/BKGwtuTr.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"4452-NlhAkWFv7KVhTzrXcHhccCbXcQ8\"",
+    "mtime": "2026-08-12T12:47:51.767Z",
+    "size": 17490,
+    "path": "../public/_nuxt/BKGwtuTr.js"
+  },
+  "/_nuxt/D2lFgMxh.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"4eaf-1ouCUmc3//kArl4yLpRGMYczcx4\"",
+    "mtime": "2026-08-12T12:47:51.767Z",
+    "size": 20143,
+    "path": "../public/_nuxt/D2lFgMxh.js"
+  },
+  "/_nuxt/CMsAQkXJ.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"18cb-V2FvGLX4PNzEFT94E6pyH2hXRsg\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 6347,
+    "path": "../public/_nuxt/CMsAQkXJ.js"
+  },
+  "/_nuxt/DdSSTsHe.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1d76-gjxIWGBH1em/BxePwJgbNRTYd68\"",
+    "mtime": "2026-08-12T12:47:51.767Z",
+    "size": 7542,
+    "path": "../public/_nuxt/DdSSTsHe.js"
+  },
+  "/_nuxt/DCUabOlc.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"4cb5-K8qVZsb5d7r7BK/Tj4zgT65qYjk\"",
+    "mtime": "2026-08-12T12:47:51.767Z",
+    "size": 19637,
+    "path": "../public/_nuxt/DCUabOlc.js"
+  },
+  "/_nuxt/DjANAoq1.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"2eab6-JdUbp4OfFkC4ExePxtHhdgSVcFU\"",
+    "mtime": "2026-08-12T12:47:51.765Z",
+    "size": 191158,
+    "path": "../public/_nuxt/DjANAoq1.js"
+  },
+  "/_nuxt/default.D3nTDm4a.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"11e-XGGarUpzmfXFsDW6kelhnk1VKYE\"",
+    "mtime": "2026-08-12T12:47:51.765Z",
+    "size": 286,
+    "path": "../public/_nuxt/default.D3nTDm4a.css"
+  },
+  "/_nuxt/DkMTIVYa.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"23ca-kVU41hBotU8GrTF+oh+VrglEpNA\"",
+    "mtime": "2026-08-12T12:47:51.767Z",
+    "size": 9162,
+    "path": "../public/_nuxt/DkMTIVYa.js"
+  },
+  "/_nuxt/DThYn9_w.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"2142-PbA2mxt/u8pxZQopJ7/h4BDQmaI\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 8514,
+    "path": "../public/_nuxt/DThYn9_w.js"
   },
   "/_nuxt/error-404.DL_4WIao.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"dca-KnjyV0UbpsrliiJzZx69defY74k\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
+    "mtime": "2026-08-12T12:47:51.749Z",
     "size": 3530,
     "path": "../public/_nuxt/error-404.DL_4WIao.css"
+  },
+  "/_nuxt/error-500.I1Dtv2V5.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"75a-vEGyJqldBVJrnMfcLsrGaHcxYl0\"",
+    "mtime": "2026-08-12T12:47:51.765Z",
+    "size": 1882,
+    "path": "../public/_nuxt/error-500.I1Dtv2V5.css"
+  },
+  "/_nuxt/H_w1rpVP.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"d40-DstsqytJTNlvd2SYNuTBJB0HsGM\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 3392,
+    "path": "../public/_nuxt/H_w1rpVP.js"
+  },
+  "/_nuxt/index.BnvPtnzJ.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"b1-S6uAn9phJDgX+FjM6ps6xF322x0\"",
+    "mtime": "2026-08-12T12:47:51.763Z",
+    "size": 177,
+    "path": "../public/_nuxt/index.BnvPtnzJ.css"
   },
   "/_nuxt/index.BTTqqcHJ.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"189-3mxGhs+I8BgYiDEuZaI7t8BP/W8\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
+    "mtime": "2026-08-12T12:47:51.763Z",
     "size": 393,
     "path": "../public/_nuxt/index.BTTqqcHJ.css"
   },
-  "/_nuxt/index.DnQsLq6f.css": {
+  "/_nuxt/index.vXBVpgTS.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"1ad-Hd1Fb9R1NhFJfOGI6irsi7qrKpU\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
+    "etag": "\"1ad-mvIIYv+O3pc0aId7xf/j0ClAs5Y\"",
+    "mtime": "2026-08-12T12:47:51.763Z",
     "size": 429,
-    "path": "../public/_nuxt/index.DnQsLq6f.css"
+    "path": "../public/_nuxt/index.vXBVpgTS.css"
   },
-  "/_nuxt/index.BBZpPStw.css": {
+  "/_nuxt/index.WohfZ_fH.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"dc-h72O183IbPNNPSeCoENl7wDduNU\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
+    "etag": "\"dc-MblHjps7tSE11NoKUAt42NS+7bA\"",
+    "mtime": "2026-08-12T12:47:51.763Z",
     "size": 220,
-    "path": "../public/_nuxt/index.BBZpPStw.css"
+    "path": "../public/_nuxt/index.WohfZ_fH.css"
   },
-  "/_nuxt/index.DXz5Oama.css": {
+  "/_nuxt/tQQRS6hh.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"266f-afB//WzqhkQaGEY3Qdb0+T1jNmA\"",
+    "mtime": "2026-08-12T12:47:51.766Z",
+    "size": 9839,
+    "path": "../public/_nuxt/tQQRS6hh.js"
+  },
+  "/_nuxt/ViwXT0o4.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1833-WzKK1NqZ3b3ILrn0Dgrf140WYME\"",
+    "mtime": "2026-08-12T12:47:51.767Z",
+    "size": 6195,
+    "path": "../public/_nuxt/ViwXT0o4.js"
+  },
+  "/_nuxt/SciFiInspector.BKS7GNa6.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"b1-4MtdIKeAcOrcpDUjRll7FFf2GVg\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 177,
-    "path": "../public/_nuxt/index.DXz5Oama.css"
-  },
-  "/_nuxt/index.CtgmmYW-.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"d1-c2XrhUPadFV5VTClgtBX97SNe7Y\"",
-    "mtime": "2026-07-09T16:01:36.201Z",
-    "size": 209,
-    "path": "../public/_nuxt/index.CtgmmYW-.css"
-  },
-  "/_nuxt/Om3lz6hf.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"4172-hYtZ9lbe02zT97ZxWSeGAgU3CzU\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 16754,
-    "path": "../public/_nuxt/Om3lz6hf.js"
-  },
-  "/_nuxt/YCSePULg.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"18c0-vlIjexuVQ+HS1bgTWYOiwTOG6wQ\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 6336,
-    "path": "../public/_nuxt/YCSePULg.js"
-  },
-  "/_nuxt/pqzXkp9m.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"eb2-MKxuvpxXdqmuj/SaTXZoXxIrLWs\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 3762,
-    "path": "../public/_nuxt/pqzXkp9m.js"
-  },
-  "/_nuxt/r7wp-0Ia.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"5154-AABmpIq62ve6h5go+fCqk4A5ZKA\"",
-    "mtime": "2026-07-09T16:01:36.215Z",
-    "size": 20820,
-    "path": "../public/_nuxt/r7wp-0Ia.js"
+    "etag": "\"e3-ZXaQzJCvcmZuaZKPkO7ebrIxDBA\"",
+    "mtime": "2026-08-12T12:47:51.765Z",
+    "size": 227,
+    "path": "../public/_nuxt/SciFiInspector.BKS7GNa6.css"
   }
 };
 
@@ -4921,7 +4957,7 @@ function getAsset (id) {
 
 const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
 const EncodingMap = { gzip: ".gz", br: ".br" };
-const _i0G7b8 = eventHandler((event) => {
+const _yOnCC0 = eventHandler((event) => {
   if (event.method && !METHODS.has(event.method)) {
     return;
   }
@@ -4987,101 +5023,107 @@ const _i0G7b8 = eventHandler((event) => {
 
 const _SxA8c9 = defineEventHandler(() => {});
 
-const _lazy_M9WVsj = () => import('../routes/api/actions/audit.post.mjs');
-const _lazy_az3izp = () => import('../routes/api/aplicaciones/accesos.get.mjs');
-const _lazy_pO957z = () => import('../routes/api/aplicaciones/conceder.post.mjs');
-const _lazy_1dBX4P = () => import('../routes/api/index.get.mjs');
-const _lazy_9pB2dg = () => import('../routes/api/aplicaciones/toggle-acceso.post.mjs');
-const _lazy_oTgitY = () => import('../routes/api/index2.get.mjs');
-const _lazy_DUaxf1 = () => import('../routes/api/colaboradores/_id_.delete.mjs');
-const _lazy_exKHT0 = () => import('../routes/api/colaboradores/_id_.put.mjs');
-const _lazy_JKqAxj = () => import('../routes/api/colaboradores/create.post.mjs');
-const _lazy_wfAb8m = () => import('../routes/api/index3.get.mjs');
-const _lazy_HsfKd9 = () => import('../routes/api/dashboard.get.mjs');
-const _lazy_vbE68s = () => import('../routes/api/dashboard/stats.get.mjs');
-const _lazy_IRl_4t = () => import('../routes/api/desvinculacion/iniciar/_id_.post.mjs');
-const _lazy_Oc2pFn = () => import('../routes/api/desvinculacion/wizard/_id_.get.mjs');
-const _lazy_pItiqU = () => import('../routes/api/devices/_id_.get.mjs');
-const _lazy_qnGcOp = () => import('../routes/api/index4.get.mjs');
-const _lazy_ekNS1X = () => import('../routes/api/equipos/_id_.delete.mjs');
-const _lazy_VRmZzT = () => import('../routes/api/equipos/_id_.put.mjs');
-const _lazy_ab6mjk = () => import('../routes/api/equipos/accion.post.mjs');
-const _lazy_YCx617 = () => import('../routes/api/equipos/collect.post.mjs');
-const _lazy_T_Ubc7 = () => import('../routes/api/equipos/create.post.mjs');
-const _lazy_Nprii3 = () => import('../routes/api/index5.get.mjs');
-const _lazy_v6aAVz = () => import('../routes/api/equipos/ping.post.mjs');
-const _lazy_5UFfOz = () => import('../routes/api/google/_id_.delete.mjs');
-const _lazy_kz3Ohs = () => import('../routes/api/google/_id_.put.mjs');
-const _lazy_W4AzN5 = () => import('../routes/api/google/auth-url.get.mjs');
-const _lazy_xzmOzy = () => import('../routes/api/google/callback.get.mjs');
-const _lazy_hYM31g = () => import('../routes/api/google/create.post.mjs');
-const _lazy_bAsD5c = () => import('../routes/api/google/exchange-code.post.mjs');
-const _lazy_0F9tyj = () => import('../routes/api/google/sincronizar.post.mjs');
-const _lazy_EJsPyx = () => import('../routes/api/google/status.get.mjs');
-const _lazy_tstjSf = () => import('../routes/api/google/toggle-status.post.mjs');
-const _lazy_UAY_Mu = () => import('../routes/api/google/users.get.mjs');
-const _lazy_RtECuY = () => import('../routes/api/jira/sincronizar.post.mjs');
-const _lazy_sNjtGt = () => import('../routes/api/index6.get.mjs');
-const _lazy_QlfSRN = () => import('../routes/api/microsoft/_id_.delete.mjs');
-const _lazy_o9vNMT = () => import('../routes/api/microsoft/_id_.put.mjs');
-const _lazy_y425Qi = () => import('../routes/api/microsoft/create.post.mjs');
-const _lazy_iIEwwE = () => import('../routes/api/microsoft/sincronizar.post.mjs');
-const _lazy_w7oJuV = () => import('../routes/api/microsoft/toggle-status.post.mjs');
-const _lazy_A2rGfl = () => import('../routes/api/microsoft/users.get.mjs');
-const _lazy_EZuudC = () => import('../routes/api/politicas/aplicar.post.mjs');
-const _lazy_EQWb6s = () => import('../routes/agent/install.ps1.mjs');
-const _lazy_xDTg96 = () => import('../routes/agent/ren-agent.js.mjs');
-const _lazy_FgdEtP = () => import('../routes/renderer.mjs').then(function (n) { return n.r; });
+const _lazy_ArYmBw = () => import('../routes/api/actions/audit.post.mjs');
+const _lazy_6VKem5 = () => import('../routes/api/index.get.mjs');
+const _lazy_4eGIlM = () => import('../routes/api/aplicaciones/accesos.get.mjs');
+const _lazy_7afsfD = () => import('../routes/api/aplicaciones/conceder.post.mjs');
+const _lazy_4jSxBj = () => import('../routes/api/index2.get.mjs');
+const _lazy_ZUc7u1 = () => import('../routes/api/aplicaciones/toggle-acceso.post.mjs');
+const _lazy_DxTyQS = () => import('../routes/api/index3.get.mjs');
+const _lazy_wnZ1iw = () => import('../routes/api/colaboradores/_id_.delete.mjs');
+const _lazy_EG7j75 = () => import('../routes/api/colaboradores/_id_.put.mjs');
+const _lazy_zL9LJk = () => import('../routes/api/colaboradores/create.post.mjs');
+const _lazy_Fnpddm = () => import('../routes/api/index4.get.mjs');
+const _lazy_WDEgox = () => import('../routes/api/dashboard.get.mjs');
+const _lazy_TlvfnO = () => import('../routes/api/dashboard/stats.get.mjs');
+const _lazy_y3qy3f = () => import('../routes/api/desvinculacion/iniciar/_id_.post.mjs');
+const _lazy_Zrv6o8 = () => import('../routes/api/desvinculacion/wizard/_id_.get.mjs');
+const _lazy_oO3jWC = () => import('../routes/api/devices/_id_.get.mjs');
+const _lazy_9RbKT7 = () => import('../routes/api/index5.get.mjs');
+const _lazy_ep5SsM = () => import('../routes/api/equipos/_id_.delete.mjs');
+const _lazy_W1nZFb = () => import('../routes/api/equipos/_id_.put.mjs');
+const _lazy_xMhG7s = () => import('../routes/api/equipos/accion.post.mjs');
+const _lazy_ADbDcG = () => import('../routes/api/equipos/collect.post.mjs');
+const _lazy_kGqOtd = () => import('../routes/api/equipos/create.post.mjs');
+const _lazy__YOggo = () => import('../routes/api/index6.get.mjs');
+const _lazy_parnc1 = () => import('../routes/api/equipos/ping.post.mjs');
+const _lazy_mL7bNO = () => import('../routes/api/google/_id_.delete.mjs');
+const _lazy_zW8xG9 = () => import('../routes/api/google/_id_.put.mjs');
+const _lazy_5bRIRr = () => import('../routes/api/google/auth-url.get.mjs');
+const _lazy_J55zch = () => import('../routes/api/google/callback.get.mjs');
+const _lazy_rcurUH = () => import('../routes/api/google/create.post.mjs');
+const _lazy_pSrLRI = () => import('../routes/api/google/exchange-code.post.mjs');
+const _lazy_Atj1hY = () => import('../routes/api/google/sincronizar.post.mjs');
+const _lazy_eTf2Ga = () => import('../routes/api/google/status.get.mjs');
+const _lazy_Gde_HU = () => import('../routes/api/google/toggle-status.post.mjs');
+const _lazy_6SXANl = () => import('../routes/api/google/users.get.mjs');
+const _lazy_VdAxv6 = () => import('../routes/api/jira/sincronizar.post.mjs');
+const _lazy_OwAlpu = () => import('../routes/api/index7.get.mjs');
+const _lazy_8nkOfi = () => import('../routes/api/microsoft/_id_.delete.mjs');
+const _lazy_jrmEfk = () => import('../routes/api/microsoft/_id_.put.mjs');
+const _lazy_stDkr_ = () => import('../routes/api/microsoft/create.post.mjs');
+const _lazy__aR2vp = () => import('../routes/api/microsoft/sincronizar.post.mjs');
+const _lazy_H2lrKW = () => import('../routes/api/microsoft/toggle-status.post.mjs');
+const _lazy_myw_wz = () => import('../routes/api/microsoft/users.get.mjs');
+const _lazy_KYoPwH = () => import('../routes/api/politicas/aplicar.post.mjs');
+const _lazy_RU1rOb = () => import('../routes/api/version.get.mjs');
+const _lazy_FKVnDn = () => import('../routes/agent/install.ps1.mjs');
+const _lazy_KJYKLl = () => import('../routes/agent/ren-agent.js.mjs');
+const _lazy_69PE4O = () => import('../routes/agent/ren-lock.ps1.mjs');
+const _lazy_DqtFUo = () => import('../routes/renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
-  { route: '', handler: _i0G7b8, lazy: false, middleware: true, method: undefined },
-  { route: '/api/actions/audit', handler: _lazy_M9WVsj, lazy: true, middleware: false, method: "post" },
-  { route: '/api/aplicaciones/accesos', handler: _lazy_az3izp, lazy: true, middleware: false, method: "get" },
-  { route: '/api/aplicaciones/conceder', handler: _lazy_pO957z, lazy: true, middleware: false, method: "post" },
-  { route: '/api/aplicaciones', handler: _lazy_1dBX4P, lazy: true, middleware: false, method: "get" },
-  { route: '/api/aplicaciones/toggle-acceso', handler: _lazy_9pB2dg, lazy: true, middleware: false, method: "post" },
-  { route: '/api/auditorias', handler: _lazy_oTgitY, lazy: true, middleware: false, method: "get" },
-  { route: '/api/colaboradores/:id', handler: _lazy_DUaxf1, lazy: true, middleware: false, method: "delete" },
-  { route: '/api/colaboradores/:id', handler: _lazy_exKHT0, lazy: true, middleware: false, method: "put" },
-  { route: '/api/colaboradores/create', handler: _lazy_JKqAxj, lazy: true, middleware: false, method: "post" },
-  { route: '/api/colaboradores', handler: _lazy_wfAb8m, lazy: true, middleware: false, method: "get" },
-  { route: '/api/dashboard', handler: _lazy_HsfKd9, lazy: true, middleware: false, method: "get" },
-  { route: '/api/dashboard/stats', handler: _lazy_vbE68s, lazy: true, middleware: false, method: "get" },
-  { route: '/api/desvinculacion/iniciar/:id', handler: _lazy_IRl_4t, lazy: true, middleware: false, method: "post" },
-  { route: '/api/desvinculacion/wizard/:id', handler: _lazy_Oc2pFn, lazy: true, middleware: false, method: "get" },
-  { route: '/api/devices/:id', handler: _lazy_pItiqU, lazy: true, middleware: false, method: "get" },
-  { route: '/api/devices', handler: _lazy_qnGcOp, lazy: true, middleware: false, method: "get" },
-  { route: '/api/equipos/:id', handler: _lazy_ekNS1X, lazy: true, middleware: false, method: "delete" },
-  { route: '/api/equipos/:id', handler: _lazy_VRmZzT, lazy: true, middleware: false, method: "put" },
-  { route: '/api/equipos/accion', handler: _lazy_ab6mjk, lazy: true, middleware: false, method: "post" },
-  { route: '/api/equipos/collect', handler: _lazy_YCx617, lazy: true, middleware: false, method: "post" },
-  { route: '/api/equipos/create', handler: _lazy_T_Ubc7, lazy: true, middleware: false, method: "post" },
-  { route: '/api/equipos', handler: _lazy_Nprii3, lazy: true, middleware: false, method: "get" },
-  { route: '/api/equipos/ping', handler: _lazy_v6aAVz, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/:id', handler: _lazy_5UFfOz, lazy: true, middleware: false, method: "delete" },
-  { route: '/api/google/:id', handler: _lazy_kz3Ohs, lazy: true, middleware: false, method: "put" },
-  { route: '/api/google/auth-url', handler: _lazy_W4AzN5, lazy: true, middleware: false, method: "get" },
-  { route: '/api/google/callback', handler: _lazy_xzmOzy, lazy: true, middleware: false, method: "get" },
-  { route: '/api/google/create', handler: _lazy_hYM31g, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/exchange-code', handler: _lazy_bAsD5c, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/sincronizar', handler: _lazy_0F9tyj, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/status', handler: _lazy_EJsPyx, lazy: true, middleware: false, method: "get" },
-  { route: '/api/google/toggle-status', handler: _lazy_tstjSf, lazy: true, middleware: false, method: "post" },
-  { route: '/api/google/users', handler: _lazy_UAY_Mu, lazy: true, middleware: false, method: "get" },
-  { route: '/api/jira/sincronizar', handler: _lazy_RtECuY, lazy: true, middleware: false, method: "post" },
-  { route: '/api/licenses', handler: _lazy_sNjtGt, lazy: true, middleware: false, method: "get" },
-  { route: '/api/microsoft/:id', handler: _lazy_QlfSRN, lazy: true, middleware: false, method: "delete" },
-  { route: '/api/microsoft/:id', handler: _lazy_o9vNMT, lazy: true, middleware: false, method: "put" },
-  { route: '/api/microsoft/create', handler: _lazy_y425Qi, lazy: true, middleware: false, method: "post" },
-  { route: '/api/microsoft/sincronizar', handler: _lazy_iIEwwE, lazy: true, middleware: false, method: "post" },
-  { route: '/api/microsoft/toggle-status', handler: _lazy_w7oJuV, lazy: true, middleware: false, method: "post" },
-  { route: '/api/microsoft/users', handler: _lazy_A2rGfl, lazy: true, middleware: false, method: "get" },
-  { route: '/api/politicas/aplicar', handler: _lazy_EZuudC, lazy: true, middleware: false, method: "post" },
-  { route: '/agent/install.ps1', handler: _lazy_EQWb6s, lazy: true, middleware: false, method: undefined },
-  { route: '/agent/ren-agent.js', handler: _lazy_xDTg96, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_FgdEtP, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _yOnCC0, lazy: false, middleware: true, method: undefined },
+  { route: '/api/actions/audit', handler: _lazy_ArYmBw, lazy: true, middleware: false, method: "post" },
+  { route: '/api/active-directory', handler: _lazy_6VKem5, lazy: true, middleware: false, method: "get" },
+  { route: '/api/aplicaciones/accesos', handler: _lazy_4eGIlM, lazy: true, middleware: false, method: "get" },
+  { route: '/api/aplicaciones/conceder', handler: _lazy_7afsfD, lazy: true, middleware: false, method: "post" },
+  { route: '/api/aplicaciones', handler: _lazy_4jSxBj, lazy: true, middleware: false, method: "get" },
+  { route: '/api/aplicaciones/toggle-acceso', handler: _lazy_ZUc7u1, lazy: true, middleware: false, method: "post" },
+  { route: '/api/auditorias', handler: _lazy_DxTyQS, lazy: true, middleware: false, method: "get" },
+  { route: '/api/colaboradores/:id', handler: _lazy_wnZ1iw, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/colaboradores/:id', handler: _lazy_EG7j75, lazy: true, middleware: false, method: "put" },
+  { route: '/api/colaboradores/create', handler: _lazy_zL9LJk, lazy: true, middleware: false, method: "post" },
+  { route: '/api/colaboradores', handler: _lazy_Fnpddm, lazy: true, middleware: false, method: "get" },
+  { route: '/api/dashboard', handler: _lazy_WDEgox, lazy: true, middleware: false, method: "get" },
+  { route: '/api/dashboard/stats', handler: _lazy_TlvfnO, lazy: true, middleware: false, method: "get" },
+  { route: '/api/desvinculacion/iniciar/:id', handler: _lazy_y3qy3f, lazy: true, middleware: false, method: "post" },
+  { route: '/api/desvinculacion/wizard/:id', handler: _lazy_Zrv6o8, lazy: true, middleware: false, method: "get" },
+  { route: '/api/devices/:id', handler: _lazy_oO3jWC, lazy: true, middleware: false, method: "get" },
+  { route: '/api/devices', handler: _lazy_9RbKT7, lazy: true, middleware: false, method: "get" },
+  { route: '/api/equipos/:id', handler: _lazy_ep5SsM, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/equipos/:id', handler: _lazy_W1nZFb, lazy: true, middleware: false, method: "put" },
+  { route: '/api/equipos/accion', handler: _lazy_xMhG7s, lazy: true, middleware: false, method: "post" },
+  { route: '/api/equipos/collect', handler: _lazy_ADbDcG, lazy: true, middleware: false, method: "post" },
+  { route: '/api/equipos/create', handler: _lazy_kGqOtd, lazy: true, middleware: false, method: "post" },
+  { route: '/api/equipos', handler: _lazy__YOggo, lazy: true, middleware: false, method: "get" },
+  { route: '/api/equipos/ping', handler: _lazy_parnc1, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/:id', handler: _lazy_mL7bNO, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/google/:id', handler: _lazy_zW8xG9, lazy: true, middleware: false, method: "put" },
+  { route: '/api/google/auth-url', handler: _lazy_5bRIRr, lazy: true, middleware: false, method: "get" },
+  { route: '/api/google/callback', handler: _lazy_J55zch, lazy: true, middleware: false, method: "get" },
+  { route: '/api/google/create', handler: _lazy_rcurUH, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/exchange-code', handler: _lazy_pSrLRI, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/sincronizar', handler: _lazy_Atj1hY, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/status', handler: _lazy_eTf2Ga, lazy: true, middleware: false, method: "get" },
+  { route: '/api/google/toggle-status', handler: _lazy_Gde_HU, lazy: true, middleware: false, method: "post" },
+  { route: '/api/google/users', handler: _lazy_6SXANl, lazy: true, middleware: false, method: "get" },
+  { route: '/api/jira/sincronizar', handler: _lazy_VdAxv6, lazy: true, middleware: false, method: "post" },
+  { route: '/api/licenses', handler: _lazy_OwAlpu, lazy: true, middleware: false, method: "get" },
+  { route: '/api/microsoft/:id', handler: _lazy_8nkOfi, lazy: true, middleware: false, method: "delete" },
+  { route: '/api/microsoft/:id', handler: _lazy_jrmEfk, lazy: true, middleware: false, method: "put" },
+  { route: '/api/microsoft/create', handler: _lazy_stDkr_, lazy: true, middleware: false, method: "post" },
+  { route: '/api/microsoft/sincronizar', handler: _lazy__aR2vp, lazy: true, middleware: false, method: "post" },
+  { route: '/api/microsoft/toggle-status', handler: _lazy_H2lrKW, lazy: true, middleware: false, method: "post" },
+  { route: '/api/microsoft/users', handler: _lazy_myw_wz, lazy: true, middleware: false, method: "get" },
+  { route: '/api/politicas/aplicar', handler: _lazy_KYoPwH, lazy: true, middleware: false, method: "post" },
+  { route: '/api/version', handler: _lazy_RU1rOb, lazy: true, middleware: false, method: "get" },
+  { route: '/agent/install.ps1', handler: _lazy_FKVnDn, lazy: true, middleware: false, method: undefined },
+  { route: '/agent/ren-agent.js', handler: _lazy_KJYKLl, lazy: true, middleware: false, method: undefined },
+  { route: '/agent/ren-lock.ps1', handler: _lazy_69PE4O, lazy: true, middleware: false, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_DqtFUo, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_FgdEtP, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_DqtFUo, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -5510,5 +5552,5 @@ function setupGracefulShutdown(listener, nitroApp) {
   });
 }
 
-export { $fetch as $, sanitizeStatusCode as A, getContext as B, defu as C, createHooks as D, executeAsync as E, parseQuery as F, withTrailingSlash as G, withoutTrailingSlash as H, hash$1 as I, trapUnhandledNodeErrors as a, useNitroApp as b, defineEventHandler as c, destr as d, createError$1 as e, getRouterParam as f, getQuery as g, sendRedirect as h, getRequestHeader as i, setResponseHeader as j, joinRelativeURL as k, encodePath as l, defineRenderHandler as m, getRouteRules as n, getResponseStatusText as o, getResponseStatus as p, parseURL as q, readBody as r, setupGracefulShutdown as s, toNodeListener as t, useRuntimeConfig as u, decodePath as v, hasProtocol as w, isScriptProtocol as x, joinURL as y, withQuery as z };
+export { $fetch as $, withQuery as A, sanitizeStatusCode as B, getContext as C, defu as D, createHooks as E, executeAsync as F, getRequestURL as G, parseQuery as H, withTrailingSlash as I, withoutTrailingSlash as J, hash$1 as K, trapUnhandledNodeErrors as a, useNitroApp as b, defineEventHandler as c, destr as d, createError$1 as e, getRouterParam as f, getQuery as g, sendRedirect as h, setHeader as i, getRequestHeader as j, setResponseHeader as k, joinRelativeURL as l, encodePath as m, defineRenderHandler as n, getRouteRules as o, getResponseStatusText as p, getResponseStatus as q, readBody as r, setupGracefulShutdown as s, toNodeListener as t, useRuntimeConfig as u, parseURL as v, decodePath as w, hasProtocol as x, isScriptProtocol as y, joinURL as z };
 //# sourceMappingURL=nitro.mjs.map

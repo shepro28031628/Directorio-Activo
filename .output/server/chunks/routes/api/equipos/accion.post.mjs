@@ -44,7 +44,7 @@ const accion_post = defineEventHandler(async (event) => {
       dataUpdate.estado = "Bloqueado";
     } else if (accion === "Desbloquear") {
       nuevoEstado = equipo.colaborador_id ? "Activo" : "Disponible";
-      socketEventName = "comando_ping";
+      socketEventName = "comando_desbloqueo";
       dataUpdate.estado = nuevoEstado;
     } else if (accion === "Reiniciar") {
       socketEventName = "comando_reinicio";

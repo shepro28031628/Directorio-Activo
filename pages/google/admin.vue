@@ -6,7 +6,12 @@ const page = ref(1)
 const limit = 20
 
 const { data: resultado, refresh } = await useFetch('/api/google/users', {
-  query: { search, page, limit, paginate: 'true' }
+  query: computed(() => ({
+    search: search.value,
+    page: page.value,
+    limit,
+    paginate: 'true'
+  }))
 })
 
 const usuarios = computed(() => (resultado.value as any)?.data || [])

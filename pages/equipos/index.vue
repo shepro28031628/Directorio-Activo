@@ -40,7 +40,13 @@ onUnmounted(() => {
 })
 
 const { data: resultado, refresh } = await useFetch('/api/equipos', {
-  query: { search, estado: statusFilter, page, limit, paginate: 'true' }
+  query: computed(() => ({
+    search: search.value,
+    estado: statusFilter.value,
+    page: page.value,
+    limit: limit.value,
+    paginate: 'true'
+  }))
 })
 
 const equipos = computed(() => (resultado.value as any)?.data || [])

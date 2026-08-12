@@ -13,70 +13,39 @@ import 'node:url';
 import '@prisma/client';
 
 const index_get = defineEventHandler(async (event) => {
+  const query = getQuery(event);
+  const search = query.search ? String(query.search) : "";
+  const status = query.status ? String(query.status) : void 0;
   try {
-    const query = getQuery(event);
-    const estado = query.estado ? String(query.estado) : void 0;
-    const search = query.search ? String(query.search) : "";
-    const page = parseInt(query.page) || 1;
-    const limit = parseInt(query.limit) || 50;
-    const skip = (page - 1) * limit;
-    const sortBy = query.sortBy ? String(query.sortBy) : "hostname";
-    const sortDesc = query.sortDesc === "true";
-    const equipos = await prisma.equipo.findMany({
+    const devices = await prisma.device.findMany({
       where: {
         AND: [
-          { eliminado_en: null },
-          estado ? { estado } : {},
+          status ? { status } : {},
           search ? {
             OR: [
-              { hostname: { contains: search, mode: "insensitive" } },
-              { mac_address: { contains: search, mode: "insensitive" } },
-              { marca_modelo: { contains: search, mode: "insensitive" } },
-              { colaborador: { nombre: { contains: search, mode: "insensitive" } } }
+              { name: { contains: search, mode: "insensitive" } },
+              { assignedUser: { contains: search, mode: "insensitive" } },
+              { ipAddress: { contains: search, mode: "insensitive" } }
             ]
           } : {}
         ]
       },
       include: {
-        colaborador: true,
-        programas: true
-      },
-      orderBy: { [sortBy]: sortDesc ? "desc" : "asc" },
-      skip,
-      take: limit
-    });
-    const total = await prisma.equipo.count({
-      where: {
-        AND: [
-          { eliminado_en: null },
-          estado ? { estado } : {},
-          search ? {
-            OR: [
-              { hostname: { contains: search, mode: "insensitive" } },
-              { mac_address: { contains: search, mode: "insensitive" } },
-              { marca_modelo: { contains: search, mode: "insensitive" } },
-              { colaborador: { nombre: { contains: search, mode: "insensitive" } } }
-            ]
-          } : {}
-        ]
-      }
-    });
-    if (query.paginate === "true") {
-      return {
-        data: equipos,
-        meta: {
-          total,
-          page,
-          limit,
-          totalPages: Math.ceil(total / limit)
+        hardware: {
+          select: {
+            cpuModel: true,
+            ramGb: true,
+            diskHealth: true
+          }
         }
-      };
-    }
-    return equipos;
+      },
+      orderBy: { name: "asc" }
+    });
+    return devices;
   } catch (error) {
     throw createError({
       statusCode: 500,
-      statusMessage: `Error al listar equipos: ${error.message}`
+      statusMessage: `Error al listar dispositivos: ${error.message}`
     });
   }
 });

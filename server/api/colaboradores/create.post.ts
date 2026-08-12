@@ -12,13 +12,23 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
+    const existing = await prisma.colaborador.findUnique({
+      where: { correo }
+    })
+    if (existing) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: 'Ya existe un colaborador registrado con este correo electrónico.'
+      })
+    }
+
     const colaborador = await prisma.colaborador.create({
       data: {
         nombre,
         correo,
         area,
         proyecto,
-        jira_id: jira_id || null,
+        jira_id: jira_id && String(jira_id).trim() !== '' ? String(jira_id).trim() : null,
         estado: 'Activo'
       }
     })

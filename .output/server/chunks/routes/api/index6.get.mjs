@@ -1,4 +1,4 @@
-import { c as defineEventHandler, e as createError } from '../../_/nitro.mjs';
+import { c as defineEventHandler, g as getQuery, e as createError } from '../../_/nitro.mjs';
 import { p as prisma } from '../../_/prisma.mjs';
 import 'node:http';
 import 'node:https';
@@ -14,40 +14,71 @@ import '@prisma/client';
 
 const index_get = defineEventHandler(async (event) => {
   try {
-    const softwareList = await prisma.software.findMany({
+    const query = getQuery(event);
+    let estado = query.estado ? String(query.estado).trim() : void 0;
+    if (estado === "[object Object]") estado = void 0;
+    let search = query.search ? String(query.search).trim() : "";
+    if (search === "[object Object]") search = "";
+    const page = parseInt(query.page) || 1;
+    const limit = parseInt(query.limit) || 50;
+    const skip = (page - 1) * limit;
+    const sortBy = query.sortBy ? String(query.sortBy) : "hostname";
+    const sortDesc = query.sortDesc === "true";
+    const equipos = await prisma.equipo.findMany({
+      where: {
+        AND: [
+          { eliminado_en: null },
+          estado ? { estado } : {},
+          search ? {
+            OR: [
+              { hostname: { contains: search, mode: "insensitive" } },
+              { mac_address: { contains: search, mode: "insensitive" } },
+              { marca_modelo: { contains: search, mode: "insensitive" } },
+              { colaborador: { nombre: { contains: search, mode: "insensitive" } } }
+            ]
+          } : {}
+        ]
+      },
       include: {
-        _count: {
-          select: { installations: true }
-        }
+        colaborador: true,
+        programas: true
+      },
+      orderBy: { [sortBy]: sortDesc ? "desc" : "asc" },
+      skip,
+      take: limit
+    });
+    const total = await prisma.equipo.count({
+      where: {
+        AND: [
+          { eliminado_en: null },
+          estado ? { estado } : {},
+          search ? {
+            OR: [
+              { hostname: { contains: search, mode: "insensitive" } },
+              { mac_address: { contains: search, mode: "insensitive" } },
+              { marca_modelo: { contains: search, mode: "insensitive" } },
+              { colaborador: { nombre: { contains: search, mode: "insensitive" } } }
+            ]
+          } : {}
+        ]
       }
     });
-    const processedLicenses = softwareList.map((soft) => {
-      const activeInstalls = soft._count.installations;
-      const unusedSeats = Math.max(0, soft.purchasedSeats - activeInstalls);
-      const potentialSavings = Number(soft.costPerSeat) * unusedSeats;
-      let recommendation = "Licencias \xF3ptimas y bien dimensionadas.";
-      if (unusedSeats > 5) {
-        recommendation = `Reclamar e interrumpir ${unusedSeats} licencias inactivas para reducir costes.`;
-      } else if (activeInstalls > soft.purchasedSeats) {
-        recommendation = `Alerta de cumplimiento: Se exceden los asientos en ${activeInstalls - soft.purchasedSeats}. Se requiere compra urgente.`;
-      }
+    if (query.paginate === "true") {
       return {
-        id: soft.id,
-        name: soft.name,
-        category: soft.category,
-        purchasedSeats: soft.purchasedSeats,
-        activeInstallations: activeInstalls,
-        costPerSeat: Number(soft.costPerSeat),
-        potentialSavings,
-        renewalDate: soft.renewalDate,
-        recommendation
+        data: equipos,
+        meta: {
+          total,
+          page,
+          limit,
+          totalPages: Math.ceil(total / limit)
+        }
       };
-    });
-    return processedLicenses;
+    }
+    return equipos;
   } catch (error) {
     throw createError({
       statusCode: 500,
-      statusMessage: `Error al auditar licencias: ${error.message}`
+      statusMessage: `Error al listar equipos: ${error.message}`
     });
   }
 });

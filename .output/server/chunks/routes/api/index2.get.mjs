@@ -14,14 +14,21 @@ import '@prisma/client';
 
 const index_get = defineEventHandler(async (event) => {
   try {
-    const auditorias = await prisma.auditoria.findMany({
-      orderBy: { fecha: "desc" }
+    const aplicaciones = await prisma.aplicacion.findMany({
+      include: {
+        accesos: {
+          include: {
+            colaborador: true
+          }
+        }
+      },
+      orderBy: { nombre: "asc" }
     });
-    return auditorias;
+    return aplicaciones;
   } catch (error) {
     throw createError({
       statusCode: 500,
-      statusMessage: `Error al obtener bit\xE1cora de auditor\xEDa: ${error.message}`
+      statusMessage: `Error al listar accesos por aplicaci\xF3n: ${error.message}`
     });
   }
 });

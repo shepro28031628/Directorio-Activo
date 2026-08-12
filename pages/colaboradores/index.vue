@@ -28,7 +28,14 @@ const editForm = ref({
 })
 
 const { data: resultado, refresh } = await useFetch('/api/colaboradores', {
-  query: { search, area: areaFilter, estado: statusFilter, page, limit, paginate: 'true' }
+  query: computed(() => ({
+    search: search.value,
+    area: areaFilter.value,
+    estado: statusFilter.value,
+    page: page.value,
+    limit: limit.value,
+    paginate: 'true'
+  }))
 })
 
 const colaboradores = computed(() => (resultado.value as any)?.data || [])
